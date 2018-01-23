@@ -1,0 +1,84 @@
+@value Variables: '../../Variables.css';
+@value colorPrimary, colorAccent from Variables;
+
+.container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.background {
+  height: 100%;
+  width: 100%;
+  background: url('../../Images/LivingRoom.jpg') no-repeat center;
+  background-size: cover;
+  filter: brightness(0.7);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: rgb(91, 138, 218, 0.7);
+  padding: 8vh 4vw 0 4vw;
+  text-align: left;
+}
+
+.modal h1,
+.modal p,
+.modal a {
+  color: white;
+}
+
+.modal h1 {
+  font-size: 3vmin;
+  padding-bottom: 5vh;
+}
+
+.modal p {
+  font-size: 2vmin;
+  padding-bottom: 5vh;
+  line-height: 1.5;
+}
+
+.buttonList {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.button {
+  color: white !important;
+  border: solid white 2px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  height: 6vmin;
+  min-width: 100px;
+  min-height: 50px;
+  text-transform: capitalize;
+  font-size: 2vmin;
+}
+
+.button:hover {
+  color: colorAccent !important;
+  background-color: white !important;
+  border: solid white 2px;
+}
+
+.backButton {
+  text-align: center;
+  width: 100%;
+}
+
+.backButton .button {
+  border: none;
+  margin: 10px;
+  margin-top: 5vh;
+}
+
+.backButton .button:hover {
+  color: white !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: none !important;
+  filter: brightness(1.8);
+  text-decoration: underline;
+}

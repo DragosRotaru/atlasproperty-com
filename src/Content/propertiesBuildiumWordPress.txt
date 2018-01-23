@@ -1,0 +1,40 @@
+title
+description
+price
+type
+address
+availability date
+lease term
+Amenities
+Features
+units
+Internet
+map
+
+Utilities
+furnishings
+Parking
+
+promotion
+Virtual Tour
+
+PropertyID
+MarketingName
+Address
+ILSIdentificationType
+UnitCount
+YearBuilt
+PropertyDescription
+LeaseTerms
+Amenity (Description)
+Policy
+File (Caption, Rank)
+Deposit
+SquareFeet
+MarketRent
+EffectiveRent
+Baths
+Bedrooms
+UnitID
+AvailabilityDate
+ListDate

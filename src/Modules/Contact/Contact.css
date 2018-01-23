@@ -1,0 +1,51 @@
+@value Variables: '../../Variables.css';
+@value colorAccent from Variables;
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  min-width: 260px;
+  padding: 40px;
+}
+
+.content h1 {
+  color: colorAccent;
+  margin: 20px 0;
+  font-size: 30px;
+}
+
+.content h4 {
+  margin: 40px 0;
+  font-size: 22px;
+}
+
+.content a h4:hover {
+  opacity: 0.4;
+}
+
+.social {
+  margin: 20px;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.social:hover {
+  filter: brightness(1.2);
+}
+
+@media screen and (width <= 599px) {
+  .content {
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    text-align: center;
+  }
+}

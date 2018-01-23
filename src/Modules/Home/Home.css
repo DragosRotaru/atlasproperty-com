@@ -1,0 +1,65 @@
+@value Variables: '../../Variables.css';
+@value colorAccent, colorText from Variables;
+
+.background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.3;
+  width: 100vw;
+  height: 100vh;
+}
+
+.heroText {
+  position: absolute;
+  margin-top: 50vh;
+  margin-left: 5vw;
+  top: 0;
+  left: 0;
+  min-width: 370px;
+  padding: 0;
+  font-size: 60px;
+}
+
+.colorAccentText {
+  color: colorAccent;
+}
+
+.colorAccentUnderline {
+  border-bottom: 5px solid colorAccent;
+  color: colorText;
+}
+
+.colorAccentUnderline:hover {
+  filter: brightness(1.5);
+}
+
+@media screen and (max-width: 835px) {
+  .heroText {
+    max-width: 600px;
+    top: 50%;
+    left: 50%;
+    font-size: 35px;
+    transform: translateY(-50%) translateX(-50%);
+    margin: auto;
+    text-align: center;
+  }
+}
+
+.heroText span:last-of-type {
+  opacity: 1;
+  animation: blink 0.8s step-end infinite !important;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
