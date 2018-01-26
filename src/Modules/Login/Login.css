@@ -4,6 +4,7 @@
 .container {
   height: 100vh;
   width: 100vw;
+  padding-top: 64px;
 }
 
 .background {
@@ -16,12 +17,8 @@
 
 .modal {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
   background-color: rgb(91, 138, 218, 0.7);
-  padding: 8vh 4vw 0 4vw;
-  text-align: left;
+  padding: 15vh 4vw 0 4vw;
 }
 
 .modal h1,
@@ -31,12 +28,12 @@
 }
 
 .modal h1 {
-  font-size: 3vmin;
+  font-size: 3vh;
   padding-bottom: 5vh;
 }
 
 .modal p {
-  font-size: 2vmin;
+  font-size: 2vh;
   padding-bottom: 5vh;
   line-height: 1.5;
 }
@@ -51,11 +48,11 @@
   border: solid white 2px;
   margin-right: 10px;
   margin-bottom: 10px;
-  height: 6vmin;
+  height: 6vh;
   min-width: 100px;
   min-height: 50px;
   text-transform: capitalize;
-  font-size: 2vmin;
+  font-size: 2vh;
 }
 
 .button:hover {
@@ -81,4 +78,21 @@
   border: none !important;
   filter: brightness(1.8);
   text-decoration: underline;
+}
+
+@media screen and (width <= 899px) {
+  .modal {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@media screen and (width >= 900px) {
+  .modal {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
 }

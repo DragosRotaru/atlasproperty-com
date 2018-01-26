@@ -22,6 +22,7 @@
 
 .list {
   display: inline-flex;
+  padding-right: 10px;
 }
 
 .list a {
@@ -40,15 +41,25 @@
   color: colorAccent;
 }
 
-.listItem {
-}
-
 .listItem:hover {
   filter: brightness(1.2);
 }
 
-.loginButton {
+.loginButton,
+.menuButton {
   font-size: 18px;
   text-transform: capitalize;
   background-color: colorAccent !important;
+}
+
+@media screen and (width <= 899px) {
+  .list a {
+    display: none;
+  }
+}
+
+@media screen and (width >= 900px) {
+  .menuButton {
+    display: none;
+  }
 }
