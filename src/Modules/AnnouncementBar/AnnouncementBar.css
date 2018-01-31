@@ -1,0 +1,36 @@
+@import '../../Variables.css';
+
+@value Variables: '../../Variables.css';
+@value colorText, colorAccent from Variables;
+
+.container {
+  left: 0;
+  right: 0;
+  top: 0;
+  margin-top: 64px;
+  height: 40px;
+  width: 100vw;
+  text-align: center;
+  background-color: rgb(244, 67, 54);
+  color: white;
+  line-height: 2;
+  font-size: 18px;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.close {
+  display: none;
+}
+
+.container:hover {
+  filter: blur(1.2);
+}
+
+.container:hover .close {
+  display: inline;
+}
+
+.container:hover .announcement {
+  display: none;
+}

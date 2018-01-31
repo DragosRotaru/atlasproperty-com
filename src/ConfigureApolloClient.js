@@ -11,7 +11,7 @@ const cache = new InMemoryCache().restore(window.__APOLLO_STATE__);
 const stateLink = withClientState({ resolvers, cache, defaults });
 
 const httpLink = new HttpLink({
-  uri: '/graphql',
+  uri: 'https://api.graphcms.com/simple/v1/atlaswebsite',
   credentials: 'same-origin',
 });
 

@@ -1,0 +1,18 @@
+@import '../../Variables.css';
+
+@value Variables: '../../Variables.css';
+@value colorText, colorAccent from Variables;
+
+.container {
+  margin: 0;
+  padding: 0;
+  margin-top: 64px;
+  height: 100vh;
+  width: 100vw;
+  content: center;
+}
+
+.grid {
+  padding-top: 5vw;
+  margin-bottom: 5vw;
+}

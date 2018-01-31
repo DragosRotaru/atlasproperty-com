@@ -11,7 +11,7 @@ import RadioButtonDataSort from '../DataSort/RadioButtonDataSort/RadioButtonData
 import Style from './Properties.css';
 import dataQuery from './Properties.gql';
 
-const dataName = 'property';
+const dataName = 'allProperties';
 
 class Properties extends Component {
   constructor() {
@@ -80,20 +80,26 @@ class Properties extends Component {
     }
     const dataView = ([
       <div className={ Style.map }><MapDataView /></div>,
-      <div className={ Style.grid }><GridDataView
-        tileType="default"
-        gridType="custom"
-        customGrid={ this.customGrid }
-        data={ this.props.local.process(this.props.data[dataName]) }
-        keyAccessor={ datum => datum.id }
-        toAccessor={ datum => datum.to }
-        mediaAccessor={ datum => datum.cover }
-        accessibilityAccessor={ () => '' }
-      /></div>,
+      <div className={ Style.grid }>
+        <GridDataView
+          tileType="default"
+          gridType="custom"
+          customGrid={ this.customGrid }
+          data={ this.props.data[dataName] }
+          keyAccessor={ datum => datum.id }
+          toAccessor={ datum => ['/properties/', datum.id].join('') }
+          mediaAccessor={ datum => datum.coverPhoto.url }
+          accessibilityAccessor={ () => '' }
+        />
+      </div>,
     ]);
     return (
       <div className={ Style.container }>
-        <Fab onMouseUp={ this.toggleMenu } className={ this.state.open ? Style.buttonWhite : Style.buttonAccent }>search</Fab>
+        <Fab
+          onMouseUp={ this.toggleMenu }
+          className={ this.state.open ? Style.buttonWhite : Style.buttonAccent }
+        >search
+        </Fab>
         <Drawer
           temporary
           open={ this.state.open }
@@ -101,15 +107,7 @@ class Properties extends Component {
         >
           <DrawerHeader theme="secondary-bg text-primary-on-secondary" className={ Style.drawerHeader } />
           <DrawerContent theme="secondary-bg text-primary-on-secondary" className={ Style.drawer }>
-            <h3>Sort</h3>
-            <RadioButtonDataSort
-              sortsAvailable={ [{ label: 'Newest' }, { label: 'Oldest' }] }
-              sortsEnabled={ this.props.local.state.sorts }
-              sortAdd={ this.props.local.sortAdd }
-              sortRemove={ this.props.local.sortRemove }
-              className={ Style.radioButtonDataSort }
-            />
-            <h3>Amenities</h3>
+            <h3>Type</h3>
             <CheckBoxDataFilter
               accessor={ property => property.amenities }
               data={ this.props.data[dataName] }
@@ -118,6 +116,18 @@ class Properties extends Component {
               filterRemove={ this.props.local.filterRemove }
               className={ Style.checkBoxDataFilter }
               theme={ ['primary'] }
+            />
+            <h3>Location</h3>
+            <h3>Bedrooms</h3>
+            <h3>Bathrooms</h3>
+            <h3>Price</h3>
+            <h3>Sort</h3>
+            <RadioButtonDataSort
+              sortsAvailable={ [{ label: 'Newest' }, { label: 'Oldest' }] }
+              sortsEnabled={ this.props.local.state.sorts }
+              sortAdd={ this.props.local.sortAdd }
+              sortRemove={ this.props.local.sortRemove }
+              className={ Style.radioButtonDataSort }
             />
           </DrawerContent>
         </Drawer>

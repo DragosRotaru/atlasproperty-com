@@ -7,6 +7,7 @@ import { Elevation } from 'rmwc/Elevation';
 import { Button } from 'rmwc/Button';
 import Style from './Header.css';
 import logo from '../../Images/Logo.svg';
+import AnnouncementBar from '../AnnouncementBar/AnnouncementBar';
 
 class Header extends Component {
   constructor() {
@@ -24,27 +25,37 @@ class Header extends Component {
   render() {
     const menu = ([
       <NavLink key="/" to="/" exact activeClassName={ Style.activeNavLink }>
-        <ListItem className={ Style.listItem }>
+        <ListItem >
           <ListItemText className={ Style.listItemText }>Home</ListItemText>
         </ListItem>
       </NavLink>,
+      <NavLink key="/tenants" to="/tenants" activeClassName={ Style.activeNavLink }>
+        <ListItem >
+          <ListItemText className={ Style.listItemText }>Tenants</ListItemText>
+        </ListItem>
+      </NavLink>,
+      <NavLink key="/owners" to="/owners" activeClassName={ Style.activeNavLink }>
+        <ListItem >
+          <ListItemText className={ Style.listItemText }>Owners</ListItemText>
+        </ListItem>
+      </NavLink>,
+      <NavLink key="/company" to="/company" activeClassName={ Style.activeNavLink }>
+        <ListItem >
+          <ListItemText className={ Style.listItemText }>Company</ListItemText>
+        </ListItem>
+      </NavLink>,
       <NavLink key="/properties" to="/properties" activeClassName={ Style.activeNavLink }>
-        <ListItem className={ Style.listItem }>
+        <ListItem >
           <ListItemText className={ Style.listItemText }>Properties</ListItemText>
         </ListItem>
       </NavLink>,
-      <NavLink key="/about" to="/about" activeClassName={ Style.activeNavLink }>
-        <ListItem className={ Style.listItem }>
-          <ListItemText className={ Style.listItemText }>About</ListItemText>
-        </ListItem>
-      </NavLink>,
       <NavLink key="/contact" to="/contact" activeClassName={ Style.activeNavLink }>
-        <ListItem className={ Style.listItem }>
+        <ListItem >
           <ListItemText className={ Style.listItemText }>Contact</ListItemText>
         </ListItem>
       </NavLink>,
       <NavLink key="/login" to="/login" activeClassName={ Style.activeNavLink }>
-        <ListItem className={ Style.listItem }>
+        <ListItem >
           <Button raised theme="secondary-bg text-primary-on-secondary" className={ Style.loginButton }>Login</Button>
         </ListItem>
       </NavLink>,
@@ -60,18 +71,21 @@ class Header extends Component {
             <ToolbarSection alignEnd>
               <List className={ Style.list } tag="nav">
                 { menu }
-                <Button
-                  raised
-                  onClick={ this.toggleMenu }
-                  theme="secondary-bg text-primary-on-secondary"
-                  className={ Style.menuButton }
-                >Menu
-                </Button>
+                <ListItem >
+                  <Button
+                    raised
+                    onClick={ this.toggleMenu }
+                    theme="secondary-bg text-primary-on-secondary"
+                    className={ Style.menuButton }
+                  >Menu
+                  </Button>
+                </ListItem>
               </List>
             </ToolbarSection>
           </ToolbarRow>
         </Toolbar>
       </Elevation>,
+      <AnnouncementBar key="announcementBar" />,
       <Drawer
         temporary
         key="drawer"

@@ -1,8 +1,52 @@
 {
-  property @client {
+  allProperties {
     id
-    to
-    cover
+    location
     title
+    type
+    description
+    yearBuilt
+    numberOfFloors
+    features
+    coverPhoto {
+      id
+      url
+      mimeType
+    }
+    media {
+      id
+      url
+      mimeType
+    }
+    virtualTourURL
+    units {
+      id
+      unitNumber
+      title
+      description
+      price
+      lease {
+        type
+        durationInMonths
+        terms
+      }
+      availabilityDate
+      utilitiesIncluded
+      features
+      bedrooms
+      bathrooms
+      squareFeet
+      coverPhoto {
+        id
+        url
+        mimeType
+      }
+      media {
+        id
+        url
+        mimeType
+      }
+      virtualTourURL
+    }
   }
 }

@@ -1,5 +1,5 @@
 @value Variables: '../../Variables.css';
-@value colorAccent, colorText from Variables;
+@value colorBackgroundSecondary, colorPrimary, colorAccent from Variables;
 
 .container {
   margin-top: 64px;

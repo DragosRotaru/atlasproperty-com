@@ -1,0 +1,11 @@
+{
+  allTeamMembers {
+    id
+    name
+    title
+    bio
+    email
+    socialMediaURLs
+    portrait
+  }
+}

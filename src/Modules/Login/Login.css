@@ -18,7 +18,7 @@
 .modal {
   position: absolute;
   background-color: rgb(91, 138, 218, 0.7);
-  padding: 15vh 4vw 0 4vw;
+  padding: 15vh 4vw 5vh 4vw;
 }
 
 .modal h1,

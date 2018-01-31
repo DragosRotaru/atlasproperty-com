@@ -2,7 +2,7 @@ import React from 'react';
 import Typist from 'react-typist';
 import Astronaut from '../../Images/astronaut.svg';
 import HouseSearching from '../../Images/house_searching.svg';
-import Style from './About.css';
+import Style from './Company.css';
 
 const cursorSettings = {
   show: false,
@@ -12,7 +12,7 @@ const cursorSettings = {
   hideWhenDoneDelay: 1000,
 };
 
-const About = () => ([
+const Company = () => ([
   <div key="1" className={ Style.background } />,
   <div key="2" className={ Style.backgroundSecond } />,
   <div key="3" className={ Style.content }>
@@ -55,4 +55,4 @@ const About = () => ([
   </div>,
 ]);
 
-export default About;
+export default Company;

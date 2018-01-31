@@ -13,6 +13,7 @@
 }
 
 .buttonAccent {
+  display: none;
   background-color: colorAccent !important;
   position: fixed;
   z-index: 1000;
@@ -21,6 +22,7 @@
 }
 
 .buttonWhite {
+  display: none;
   background-color: white !important;
   color: colorAccent !important;
   position: fixed;
