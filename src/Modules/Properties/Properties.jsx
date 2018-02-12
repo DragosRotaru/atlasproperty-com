@@ -4,7 +4,9 @@ import { Drawer, DrawerHeader, DrawerContent } from 'rmwc/Drawer';
 import { Fab } from 'rmwc/Fab';
 import { TabBar, Tab, TabIcon } from 'rmwc/Tabs';
 import DataSet from '../DataSet/DataSet';
-import GridDataView from '../DataView/GridDataView/GridDataView';
+import InViewportDataView from '../DataView/InViewportDataView/InViewportDataView';
+import { Tile } from '../DatumView/TileDatumView/TileDatumView';
+import { Summary } from '../DatumView/SummaryDatumView/SummaryDatumView';
 import MapDataView from '../DataView/MapDataView/MapDataView';
 import CheckBoxDataFilter from '../DataFilter/CheckBoxDataFilter/CheckBoxDataFilter';
 import RadioButtonDataSort from '../DataSort/RadioButtonDataSort/RadioButtonDataSort';
@@ -26,49 +28,46 @@ class Properties extends Component {
     this.closeMenu = () => {
       this.setState({ open: false });
     };
-    this.customGrid = (data, tile, TileOptionsOriginal, SummaryOptionsOriginal, inViewIndex) => {
-      const TileOptions = {
-        size: ['small'],
-        color: ['image-white'],
-        interaction: ['high', 'high', 'low'],
-      };
-      const SummaryOptions = {
-      };
-      const tiles = [];
+    this.customGrid = (data, inViewportIndex) => {
       const tileOptions = {
-        options: {},
-        index: {},
+        size: 'small',
+        color: 'image-white',
+        interaction: 'low',
       };
       const summaryOptions = {
-        options: {},
-        index: {},
+        underline: 'underline',
+        align: 'right',
       };
-      Object.keys(TileOptions).forEach((key) => {
-        tileOptions.index[key] = 0;
-      });
-      Object.keys(SummaryOptions).forEach((key) => {
-        summaryOptions.index[key] = 0;
-      });
+      const tiles = [];
       data.forEach((datum, i) => {
-        Object.keys(TileOptions).forEach((key) => {
-          tileOptions.options[key] =
-          TileOptions[key][tileOptions.index[key] % TileOptions[key].length];
-          tileOptions.index[key] += 1;
-        });
-        Object.keys(SummaryOptions).forEach((key) => {
-          summaryOptions.options[key] =
-          SummaryOptions[key][summaryOptions.index[key] %
-          SummaryOptions[key].length];
-          summaryOptions.index[key] += 1;
-        });
-        tiles.push(tile(
-          datum,
-          tileOptions.options,
-          summaryOptions.options,
-          i === inViewIndex,
-        ));
+        tiles.push(
+          <Tile
+            { ...tileOptions }
+            key={ datum.id }
+            mediaURL={ this.mediaURLAccessor(datum) }
+            mimeType={ this.mimeTypeAccessor(datum) }
+            active={ i === inViewportIndex }
+          ><Summary
+            { ...summaryOptions }
+            className={ Style.summary }
+            title={ datum.title }
+            description={ '' }
+          />
+          </Tile>);
       });
       return tiles;
+    };
+    this.mediaURLAccessor = (datum) => {
+      if (datum.coverPhoto !== null) {
+        return ['https://media.graphcms.com/resize=w:800/compress/', datum.coverPhoto.handle].join('');
+      }
+      return '';
+    };
+    this.mimeTypeAccessor = (datum) => {
+      if (datum.coverPhoto !== null) {
+        return datum.coverPhoto.mimeType;
+      }
+      return 'image/jpeg';
     };
   }
   render() {
@@ -81,15 +80,11 @@ class Properties extends Component {
     const dataView = ([
       <div className={ Style.map }><MapDataView /></div>,
       <div className={ Style.grid }>
-        <GridDataView
-          tileType="default"
-          gridType="custom"
-          customGrid={ this.customGrid }
+        <InViewportDataView
+          className={ Style.grid }
           data={ this.props.data[dataName] }
           keyAccessor={ datum => datum.id }
-          toAccessor={ datum => ['/properties/', datum.id].join('') }
-          mediaAccessor={ datum => datum.coverPhoto.url }
-          accessibilityAccessor={ () => '' }
+          dataViewGenerator={ (data, inViewportIndex) => this.customGrid(data, inViewportIndex) }
         />
       </div>,
     ]);

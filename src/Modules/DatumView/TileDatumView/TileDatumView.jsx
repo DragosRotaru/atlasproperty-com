@@ -6,7 +6,7 @@ import Style from './TileDatumView.css';
 const TileOptions = {
   size: ['large', 'medium', 'small'],
   color: ['video-white', 'image-white', 'accent-white', 'primary-white', 'white-accent'],
-  interaction: ['high', 'low'],
+  interaction: ['high', 'low', 'static'],
 };
 
 class Tile extends Component {
@@ -20,16 +20,14 @@ class Tile extends Component {
     };
   }
   componentDidMount() {
-    const mediaFileExtension = this.props.media.split('.').pop().toLowerCase();
-    if (this.props.color === 'video-white' && ['webm', 'mp4', 'ogg'].indexOf(mediaFileExtension) > -1 && this.props.active) {
+    if (this.props.color === 'video-white' && ['video/webm', 'video/mp4', 'video/ogg'].indexOf(this.props.mimeType) > -1 && this.props.active) {
       this.playVideo();
-    } else if (this.props.color === 'video-white' && ['webm', 'mp4', 'ogg'].indexOf(mediaFileExtension) > -1 && !this.props.active) {
+    } else if (this.props.color === 'video-white' && ['video/webm', 'video/mp4', 'video/ogg'].indexOf(this.props.mimeType) > -1 && !this.props.active) {
       this.pauseVideo();
     }
   }
   render() {
-    const mediaFileExtension = this.props.media.split('.').pop().toLowerCase();
-    if (this.props.color === 'image-white' && (['jpg', 'jpeg', 'png', 'gif'].indexOf(mediaFileExtension) > -1)) {
+    if (this.props.color === 'image-white' && (['image/jpg', 'image/jpeg', 'image/png', 'image/gif'].indexOf(this.props.mimeType) > -1)) {
       return (
         <div
           className={ [
@@ -42,12 +40,12 @@ class Tile extends Component {
           ].join(' ') }
         >
           <Link to={ this.props.to } >
-            <img src={ this.props.media } alt={ this.props.accessibility } />
+            <img src={ this.props.mediaURL } alt={ this.props.accessibility } />
             { this.props.children }
           </Link>
         </div>
       );
-    } else if (this.props.color === 'video-white' && ['webm', 'mp4', 'ogg'].indexOf(mediaFileExtension) > -1) {
+    } else if (this.props.color === 'video-white' && ['video/webm', 'video/mp4', 'video/ogg'].indexOf(this.props.mimeType) > -1) {
       return (
         <div
           className={ [
@@ -66,7 +64,7 @@ class Tile extends Component {
           <Link to={ this.props.to } >
             <video ref={ (video) => { this.video = video; } } muted loop>
               <track kind="captions" src={ this.props.accessibility } />
-              <source src={ this.props.media } type={ ['video/', mediaFileExtension].join('') } />
+              <source src={ this.props.mediaURL } type={ this.props.mimeType } />
               Your browser doesnt support HTML5 video
             </video>
             { this.props.children }
@@ -95,7 +93,8 @@ class Tile extends Component {
 Tile.propTypes = {
   children: PropTypes.node,
   to: PropTypes.string,
-  media: PropTypes.string,
+  mediaURL: PropTypes.string,
+  mimeType: PropTypes.string,
   accessibility: PropTypes.string,
   size: PropTypes.oneOf(TileOptions.size),
   color: PropTypes.oneOf(TileOptions.color),
@@ -106,7 +105,8 @@ Tile.propTypes = {
 Tile.defaultProps = {
   children: 'hello world',
   to: '',
-  media: '',
+  mediaURL: '',
+  mimeType: '',
   accessibility: '',
   size: 'small',
   color: 'primary-white',
@@ -115,6 +115,6 @@ Tile.defaultProps = {
   active: false,
 };
 
-const TileStyle = Style;
+const TileGridStyle = Style;
 
-export { Tile, TileOptions, TileStyle };
+export { Tile, TileOptions, TileGridStyle };

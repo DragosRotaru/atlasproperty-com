@@ -3,9 +3,10 @@
     id
     name
     title
-    bio
     email
-    socialMediaURLs
-    portrait
+    portrait {
+      handle
+      mimeType
+    }
   }
 }

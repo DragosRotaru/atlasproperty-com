@@ -62,18 +62,9 @@
 .item p {
   font-size: 2.5vh;
   padding: 2vh 0;
-  text-align: right;
+  text-align: center;
 }
 
-.astronaut {
-  height: 50vh;
-  margin-top: -100px;
-}
-
-.house_searching {
-  width: 60vw;
-  margin-top: 200px;
-}
 
 @media screen and (width <= 699px) {
   .grid {
@@ -85,8 +76,8 @@
 
 @media screen and (width >= 700px) {
   .grid {
-    grid-template-columns: repeat(auto-fit, 50vw);
+    grid-template-columns: repeat(auto-fit, 80vw);
     grid-template-rows: repeat(auto-fit, auto);
-    grid-auto-columns: 50vw;
+    grid-auto-columns: 80vw;
   }
 }

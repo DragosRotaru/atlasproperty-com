@@ -1,19 +1,38 @@
 @value Variables: '../../Variables.css';
 @value colorBackgroundSecondary, colorPrimary, colorAccent from Variables;
 
-.container {
-  margin-top: 64px;
-}
-
-.heroText {
+.background {
   position: absolute;
-  margin-top: 50vh;
-  margin-left: 5vw;
   top: 0;
   left: 0;
-  min-width: 370px;
-  padding: 0;
-  font-size: 60px;
+  width: 100vw;
+  height: 150%;
+  transform: skewY(16deg);
+  background-color: white;
+}
+
+.backgroundSecond {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  margin-top: 500px;
+  transform: skewY(-12deg);
+  background: colorBackgroundSecondary;
+}
+
+.content {
+  margin: 100px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+.title {
+  padding: 20vh 10vw;
+  font-size: 6vh;
 }
 
 .colorAccentText {
@@ -22,40 +41,43 @@
 
 .colorAccentUnderline {
   border-bottom: 5px solid colorAccent;
-  color: colorText;
 }
 
-.colorAccentUnderline:hover {
-  filter: brightness(1.5);
+.grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
 }
 
-@media screen and (max-width: 835px) {
-  .heroText {
-    max-width: 600px;
-    top: 50%;
-    left: 50%;
-    font-size: 35px;
-    transform: translateY(-50%) translateX(-50%);
-    margin: auto;
-    text-align: center;
+.item {
+  padding: 30px 5vw;
+}
+
+.item h2 {
+  font-size: 3vh;
+  padding: 2vh 0;
+}
+
+.item p {
+  font-size: 2.5vh;
+  padding: 2vh 0;
+  text-align: center;
+}
+
+
+@media screen and (width <= 699px) {
+  .grid {
+    grid-template-columns: 100vw;
+    grid-template-rows: repeat(auto-fit, auto);
+    grid-auto-columns: 100vw;
   }
 }
 
-.heroText span:last-of-type {
-  opacity: 1;
-  animation: blink 0.8s step-end infinite !important;
-}
-
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
+@media screen and (width >= 700px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, 50vw);
+    grid-template-rows: repeat(auto-fit, auto);
+    grid-auto-columns: 50vw;
   }
 }

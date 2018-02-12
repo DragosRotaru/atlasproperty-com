@@ -1,38 +1,48 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
+import React from 'react';
 import Typist from 'react-typist';
-
 import Style from './Tenants.css';
 
 const cursorSettings = {
-  show: true,
+  show: false,
   blink: true,
   element: '|',
   hideWhenDone: false,
+  hideWhenDoneDelay: 1000,
 };
 
-class Tenants extends Component {
-  render() {
-    return (
-      <div className={ Style.container }>
-        <Typist className={ Style.heroText } cursor={ cursorSettings }>
-          Find Your <Link to="/" href className={ Style.colorAccentUnderline }>Happy Place</Link>
-        </Typist>
-        <h1>Lorem Ipsum</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna
-          aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit
-          esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-          occaecat cupidatat non proident, sunt in culpa qui officia
-          deserunt mollit anim id est laborum
-        </p>
+const Tenants = () => ([
+  <div key="1" className={ Style.background } />,
+  <div key="2" className={ Style.backgroundSecond } />,
+  <div key="3" className={ Style.content }>
+    <center>
+      <Typist className={ Style.heroText } cursor={ cursorSettings }>
+        <h1 className={ Style.title } >
+          <span className={ Style.colorAccentText }>{ '#' }
+          </span>Why Choose Atlas
+        </h1>
+      </Typist>
+      <div className={ Style.grid }>
+        <div className={ Style.item }>
+          <h2>Incredible Selection</h2>
+          <p>Atlas has the best selection of properties, with over 20 convenient locations in Waterloo perfect for Wilfrid Laurier and University of Waterloo students and unique Stratford accommodation for Waterloo’s Digital Innovation campus.</p>
+        </div>
+        <div className={ Style.item }>
+          <h2>Professional Management</h2>
+          <p>Enjoy the peace-of-mind of knowing that our friendly, experienced staff are available to ensure your needs are met and expectations exceeded, 24/7!</p>
+
+        </div>
+        <div className={ Style.item }>
+          <h2>All Inclusive Options</h2>
+                      <p>Many of our buildings offer tenants a completely turn-key living experience, with utilities included, fully-furnished suites, great amenities, and wireless internet.</p>
+
+        </div>
+        <div className={ Style.item }>
+          <h2>Amazing Deals</h2>
+          <p>Living on a student budget can be challenging; that’s why we’re always looking for ways to save you money - like cash-back offers and short-term leases!</p>
+        </div>
       </div>
-    );
-  }
-}
+    </center>
+  </div>,
+]);
 
 export default Tenants;

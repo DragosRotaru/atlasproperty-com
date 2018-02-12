@@ -7,7 +7,7 @@ import { Elevation } from 'rmwc/Elevation';
 import { Button } from 'rmwc/Button';
 import Style from './Header.css';
 import logo from '../../Images/Logo.svg';
-import AnnouncementBar from '../AnnouncementBar/AnnouncementBar';
+// import AnnouncementBar from '../AnnouncementBar/AnnouncementBar';
 
 class Header extends Component {
   constructor() {
@@ -85,7 +85,6 @@ class Header extends Component {
           </ToolbarRow>
         </Toolbar>
       </Elevation>,
-      <AnnouncementBar key="announcementBar" />,
       <Drawer
         temporary
         key="drawer"
