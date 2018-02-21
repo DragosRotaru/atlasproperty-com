@@ -17,34 +17,3 @@
   align-items: center;
   justify-content: center;
 }
-
-.text,
-.cursor {
-  font-size: 4vw;
-  color: white;
-  padding: 2vw;
-}
-
-.cursor {
-  opacity: 1;
-  animation: blink 0.8s step-end infinite !important;
-}
-
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.select div {
-  background-color: rgb(1, 87, 155);
-  color: white !important;
-}

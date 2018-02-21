@@ -1,0 +1,33 @@
+.text,
+.cursor,
+.submit {
+  color: white;
+  text-transform: none;
+  font-size: 25px;
+  margin: 10px;
+}
+
+.select,
+.submit {
+  background-color: rgb(1, 87, 155) !important;
+  color: white !important;
+}
+
+.cursor {
+  opacity: 1;
+  animation: blink 0.8s step-end infinite !important;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
