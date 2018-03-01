@@ -24,19 +24,16 @@ const MapDataView = compose(
   }),
   withScriptjs,
   withGoogleMap,
-)(props => (
-  <GoogleMap
-    isMarkerShown
-    defaultZoom={ 14 }
-    defaultCenter={ props.center }
-    options={ { disableDefaultUI: true, styles: defaultStyle, minZoom: 3 } }
-  >
-    <Marker position={ { lat: 43.465267, lng: -80.552608 } } icon={ ['http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|', Color(Variables.colorAccent).hex().substr(1)].join('') } />
-    <Marker position={ { lat: 43.455267, lng: -80.503608 } } icon={ ['http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|', Color(Variables.colorAccent).hex().substr(1)].join('') } />
-    <Marker position={ { lat: 43.475267, lng: -80.557608 } } icon={ ['http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|', Color(Variables.colorAccent).hex().substr(1)].join('') } />
-    <Marker position={ { lat: 43.445267, lng: -80.535608 } } icon={ ['http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|', Color(Variables.colorAccent).hex().substr(1)].join('') } />
-    <Marker position={ { lat: 43.455267, lng: -80.522608 } } icon={ ['http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|', Color(Variables.colorAccent).hex().substr(1)].join('') } />
-  </GoogleMap>
-));
+)((props) => {
+  return (
+    <GoogleMap
+      isMarkerShown
+      defaultZoom={ 14 }
+      defaultCenter={ props.center }
+      options={ { disableDefaultUI: true, styles: defaultStyle, minZoom: 3 } }
+    >{ props.data.map(datum => <Marker key={ datum.id } position={ datum.location } icon={ ['http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|', Color(Variables.colorAccent).hex().substr(1)].join('') } />) }
+    </GoogleMap>
+  );
+});
 
 export default MapDataView;

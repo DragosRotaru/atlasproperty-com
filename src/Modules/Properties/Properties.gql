@@ -2,10 +2,10 @@
   allProperties {
     id
     location
-    title
-    coverPhoto {
+    address
+    media {
       handle
-      mimeType
+      isFeatured
     }
     units {
       price

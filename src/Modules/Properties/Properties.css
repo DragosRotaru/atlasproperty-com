@@ -6,7 +6,6 @@
 .container {
   margin: 0;
   padding: 0;
-  margin-top: 164px;
   height: 100vh;
   width: 100vw;
   content: center;
@@ -84,10 +83,10 @@
   overflow: hidden;
 }
 
-
 .grid {
   grid-gap: 5vw;
   justify-content: center;
+  margin-top: 164px;
 }
 
 .summary {
@@ -114,9 +113,11 @@
     grid-auto-rows: 90vw;
     grid-auto-columns: 90vw;
   }
+
   .summary {
     padding: 5vh 5vw;
   }
+
   .summary h2 {
     font-size: 5vw;
   }
@@ -137,6 +138,7 @@
     grid-auto-rows: 44vw;
     grid-auto-columns: 44vw;
   }
+
   .summary h2 {
     font-size: 2vw;
   }

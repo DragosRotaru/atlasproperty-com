@@ -1,0 +1,24 @@
+query getProperty($id: ID) {
+  Property (id: $id) {
+    address
+    type
+    features
+    description
+    media {
+      handle
+      isFeatured
+    }
+    units {
+      bedrooms
+      bathrooms
+      price
+      availabilityDate
+      utilitiesIncluded
+      features
+      media {
+        handle
+        isFeatured
+      }
+    }
+  }
+}

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Drawer, DrawerHeader, DrawerContent } from 'rmwc/Drawer';
-import { Fab } from 'rmwc/Fab';
+// import { Drawer, DrawerHeader, DrawerContent } from 'rmwc/Drawer';
+// import { Fab } from 'rmwc/Fab';
 import { TabBar, Tab, TabIcon } from 'rmwc/Tabs';
 import DataSet from '../DataSet/DataSet';
 import InViewportDataView from '../DataView/InViewportDataView/InViewportDataView';
 import { Tile } from '../DatumView/TileDatumView/TileDatumView';
 import { Summary } from '../DatumView/SummaryDatumView/SummaryDatumView';
 import MapDataView from '../DataView/MapDataView/MapDataView';
-import CheckBoxDataFilter from '../DataFilter/CheckBoxDataFilter/CheckBoxDataFilter';
-import RadioButtonDataSort from '../DataSort/RadioButtonDataSort/RadioButtonDataSort';
+// import CheckBoxDataFilter from '../DataFilter/CheckBoxDataFilter/CheckBoxDataFilter';
+// import RadioButtonDataSort from '../DataSort/RadioButtonDataSort/RadioButtonDataSort';
 import Style from './Properties.css';
 import dataQuery from './Properties.gql';
 
@@ -45,29 +45,26 @@ class Properties extends Component {
             { ...tileOptions }
             key={ datum.id }
             mediaURL={ this.mediaURLAccessor(datum) }
-            mimeType={ this.mimeTypeAccessor(datum) }
+            mimeType="image/jpeg"
             active={ i === inViewportIndex }
           ><Summary
             { ...summaryOptions }
             className={ Style.summary }
             title={ datum.title }
-            description={ '' }
+            description=""
           />
           </Tile>);
       });
       return tiles;
     };
     this.mediaURLAccessor = (datum) => {
-      if (datum.coverPhoto !== null) {
-        return ['https://media.graphcms.com/resize=w:800/compress/', datum.coverPhoto.handle].join('');
-      }
-      return '';
-    };
-    this.mimeTypeAccessor = (datum) => {
-      if (datum.coverPhoto !== null) {
-        return datum.coverPhoto.mimeType;
-      }
-      return 'image/jpeg';
+      let result = '';
+      datum.media.forEach((item) => {
+        if (item.isFeatured) {
+          result = ['https://media.graphcms.com/resize=w:800/compress/', item.handle].join('');
+        }
+      });
+      return result;
     };
   }
   render() {
@@ -78,18 +75,17 @@ class Properties extends Component {
       return (<div>{ this.props.data.error.toString() }</div>);
     }
     const dataView = ([
-      <div className={ Style.map }><MapDataView /></div>,
-      <div className={ Style.grid }>
-        <InViewportDataView
-          className={ Style.grid }
-          data={ this.props.data[dataName] }
-          keyAccessor={ datum => datum.id }
-          dataViewGenerator={ (data, inViewportIndex) => this.customGrid(data, inViewportIndex) }
-        />
-      </div>,
+      <div className={ Style.map }><MapDataView data={ this.props.data[dataName] } /></div>,
+      <InViewportDataView
+        className={ Style.grid }
+        data={ this.props.data[dataName] }
+        keyAccessor={ datum => datum.id }
+        dataViewGenerator={ (data, inViewportIndex) => this.customGrid(data, inViewportIndex) }
+      />,
     ]);
     return (
       <div className={ Style.container }>
+        { /*
         <Fab
           onMouseUp={ this.toggleMenu }
           className={ this.state.open ? Style.buttonWhite : Style.buttonAccent }
@@ -126,6 +122,7 @@ class Properties extends Component {
             />
           </DrawerContent>
         </Drawer>
+        */ }
         <TabBar
           className={ Style.tab }
           activeTabIndex={ this.state.viewIndex }
