@@ -15,7 +15,7 @@
 }
 
 .announcementBar {
-  
+
 }
 
 .logo {
@@ -48,17 +48,18 @@
 .loginButton,
 .menuButton {
   font-size: 18px;
+  min-width: 140px !important;
   text-transform: capitalize;
   background-color: colorAccent !important;
 }
 
-@media screen and (width <= 899px) {
+@media screen and (width <= 999px) {
   .list a {
     display: none;
   }
 }
 
-@media screen and (width >= 900px) {
+@media screen and (width >= 1000px) {
   .menuButton {
     display: none;
   }

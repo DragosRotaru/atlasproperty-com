@@ -266,6 +266,7 @@
 @value colorBackgroundThird: palettegrey900;
 @value colorText: #4B4D4F;
 @value colorTextSecondary: colorwhite;
+@value colorTextLight: palettegrey500;
 @value colorPrimary: #4B4D4F;
 @value colorPrimaryDark: palettegrey700;
 @value colorAccent: #5B8ADA;

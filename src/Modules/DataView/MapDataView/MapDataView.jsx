@@ -1,6 +1,6 @@
 import React from 'react';
 import { compose, withProps } from 'recompose';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import Color from 'color';
 import Loading from '../../Loading/Loading';
 import Variables from '../../../Variables.css';
@@ -24,16 +24,26 @@ const MapDataView = compose(
   }),
   withScriptjs,
   withGoogleMap,
-)((props) => {
-  return (
-    <GoogleMap
-      isMarkerShown
-      defaultZoom={ 14 }
-      defaultCenter={ props.center }
-      options={ { disableDefaultUI: true, styles: defaultStyle, minZoom: 3 } }
-    >{ props.data.map(datum => <Marker key={ datum.id } position={ datum.location } icon={ ['http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|', Color(Variables.colorAccent).hex().substr(1)].join('') } />) }
-    </GoogleMap>
-  );
-});
+)(props => (
+  <GoogleMap
+    isMarkerShown
+    defaultZoom={ 14 }
+    defaultCenter={ props.center }
+    options={ { disableDefaultUI: true, styles: defaultStyle, minZoom: 3 } }
+  >{ props.data.map(datum => (
+    <Marker
+      key={ datum.id }
+      position={ datum.location }
+      onClick={ () => props.onClick(datum.id) }
+      icon={ ['http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|', Color(Variables.colorAccent).hex().substr(1)].join('') }
+    >{ props.selected === datum.id ? (
+      <InfoWindow onCloseClick={ props.onClose }>
+        <div>{ datum.address }</div>
+      </InfoWindow>
+    ) : '' }
+    </Marker>
+    )) }
+  </GoogleMap>
+));
 
 export default MapDataView;

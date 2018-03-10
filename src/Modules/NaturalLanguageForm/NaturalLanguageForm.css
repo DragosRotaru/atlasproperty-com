@@ -1,16 +1,36 @@
-.text,
-.cursor,
-.submit {
+@value Variables: '../../Variables.css';
+@value colorAccent from Variables;
+
+.text {
   color: white;
   text-transform: none;
   font-size: 25px;
-  margin: 10px;
+  margin: 20px;
 }
 
-.select,
+.cursor {
+  color: white;
+  text-transform: none;
+  font-size: 25px;
+  margin: 20px;
+  margin-left: 10px;
+}
+
 .submit {
-  background-color: rgb(1, 87, 155) !important;
+  background-color: colorAccent !important;
   color: white !important;
+  text-transform: none;
+  font-size: 25px;
+  margin: 20px;
+}
+
+.select {
+  background-color: white !important;
+  color: white;
+  font-size: 25px !important;
+  line-height: 1.5;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .cursor {

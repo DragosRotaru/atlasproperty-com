@@ -7,10 +7,10 @@ const DataSet = (dataQuery) => {
   const DataProvider = graphql(dataQuery, {
     options: props => ({
       variables: {
-        pageSize: props.global.state.pageSize,
-        cursor: props.global.state.cursor,
-        filters: props.global.state.filters,
-        sorts: props.global.state.sorts,
+        pageSize: props.dataSet.state.global.pageSize,
+        cursor: props.dataSet.state.global.cursor,
+        filters: props.dataSet.state.global.filters,
+        sorts: props.dataSet.state.global.sorts,
       },
     }),
   });
@@ -36,46 +36,38 @@ const DataSet = (dataQuery) => {
             selected: props.localInit.selected,
           },
         };
-        /*
-        this.resetState = () => this.setState({
-          pageSize: this.props.globalInit.pageSize,
-          cursor: this.props.globalInit.cursor,
-          sorts: this.props.globalInit.sorts,
-          filters: this.props.globalInit.filters,
+
+        // Set a Property with a Value
+        this.set = (value, property, scope) => this.setState((prevState) => {
+          const nextState = prevState;
+          nextState[scope][property] = value;
+          return nextState;
         });
-        */
-        this.pageSizeSet = (pageSize, scope) => this.setState({ [scope]: { pageSize } });
-        this.cursorSet = cursor => this.setState({ global: { cursor } });
-        this.cursorIncrement = inc => this.setState(prevState =>
-          ({ cursor: prevState.cursor + inc }));
-        this.cursorDecrement = dec => this.setState(prevState =>
-          ({ cursor: prevState.cursor - dec }));
-        this.sortAdd = sort => this.setState(prevState =>
-          ({ sorts: prevState.sorts.concat(sort) }));
-        this.sortRemove = sort => this.setState(prevState =>
-          ({
-            sorts: prevState.sorts.indexOf(sort) > -1 ?
-              prevState.sorts.filter(item => item !== sort) :
-              prevState.sorts,
-          }));
-        this.filterAdd = (filter, scope) => this.setState(prevState =>
-          ({ [scope]: { filters: prevState[scope].filters.concat(filter) } }));
-        this.filterRemove = (filter, scope) => this.setState(prevState =>
-          ({
-            [scope]: {
-              filters: prevState[scope].filters.findIndex(item => item.id === filter.id) > -1 ?
-                prevState[scope].filters.filter(item => item.id !== filter.id) :
-                prevState[scope].filters,
-            },
-          }));
-        this.selectAdd = select => this.setState(prevState =>
-          ({ selected: prevState.selected.concat(select) }));
-        this.selectRemove = select => this.setState(prevState =>
-          ({
-            selected: prevState.selected.indexOf(select) > -1 ?
-              prevState.selected.filter(item => item !== select) :
-              prevState.selected,
-          }));
+
+        // Change a Property by Value
+        this.delta = (value, property, scope) => this.setState((prevState) => {
+          const nextState = prevState;
+          nextState[scope][property] = prevState[scope][property] + value;
+          return nextState;
+        });
+
+        // Append a Value to a State Array
+        this.concat = (value, property, scope) => this.setState((prevState) => {
+          const nextState = prevState;
+          nextState[scope][property] = prevState[scope][property].concat(value);
+          return nextState;
+        });
+
+        // Remove a Value from a State Array
+        this.remove = (value, property, scope) => this.setState((prevState) => {
+          const nextState = prevState;
+          nextState[scope][property] =
+            prevState[scope][property].findIndex(item => item === value) > -1 ?
+              prevState[scope][property].filter(item => item !== value) :
+              prevState[scope][property];
+          return nextState;
+        });
+
         this.process = data => this.sort(this.filter(data));
         this.sort = (data) => {
           if (this.state.local.sorts.length === 0) {
@@ -97,41 +89,15 @@ const DataSet = (dataQuery) => {
       render() {
         return (
           <WithData
-            global={ {
-              state: this.state.global,
-              reset: () => this.reset,
-              pageSizeSet: size => this.pageSizeSet(size),
-              pageSizeReset: () => this.pageSizeReset,
-              cursorSet: position => this.cursorSet(position),
-              cursorReset: () => this.cursorReset,
-              cursorIncrement: inc => this.cursorIncrement(inc),
-              cursorDecrement: dec => this.cursorDecrement(dec),
-              sortAdd: sort => this.sortAdd(sort),
-              sortRemove: sort => this.sortRemove(sort),
-              sortReset: () => this.sortReset,
-              filterAdd: filter => this.filterAdd(filter),
-              filterRemove: filter => this.filterRemove(filter),
-              filterReset: () => this.filterReset,
-              } }
-            local={ {
-              state: this.state.local,
-              reset: () => this.reset,
-              pageSizeSet: size => this.pageSizeSet(size),
-              pageSizeReset: () => this.pageSizeReset,
-              cursorSet: position => this.cursorSet(position),
-              cursorReset: () => this.cursorReset,
-              cursorIncrement: inc => this.cursorIncrement(inc),
-              cursorDecrement: dec => this.cursorDecrement(dec),
-              sortAdd: sort => this.sortAdd(sort),
-              sortRemove: sort => this.sortRemove(sort),
-              sortReset: () => this.sortReset,
-              filterAdd: filter => this.filterAdd(filter, 'local'),
-              filterRemove: filter => this.filterRemove(filter, 'local'),
-              filterReset: () => this.filterReset,
-              process: data => this.process(data),
+            { ...this.props }
+            dataSet={ {
+              state: this.state,
+              set: (value, property, scope) => this.set(value, property, scope),
+              delta: (value, property, scope) => this.set(value, property, scope),
+              concat: (value, property, scope) => this.set(value, property, scope),
+              remove: (value, property, scope) => this.set(value, property, scope),
             } }
-          ><Component />
-          </WithData>
+          />
         );
       }
     }

@@ -29,7 +29,7 @@ const Datum = (readQuery) => {
 
     class _Datum extends Component {
       render() {
-        const id = typeof this.props.id === 'undefined' ? this.props.match.params.id : this.props.id;
+        const id = (typeof this.props.id === 'undefined' ? this.props.match.params.id : this.props.id);
         /*
         if (typeof id === 'undefined') {
           this.props.createMutation({ variables: { id } }).then(data => (

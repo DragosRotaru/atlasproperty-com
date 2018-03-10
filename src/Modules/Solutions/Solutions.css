@@ -1,0 +1,133 @@
+@value Variables: '../../Variables.css';
+@value colorBackgroundSecondary, colorPrimary, colorAccent from Variables;
+
+.hero {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(20, 20, 20, 0.3), rgba(20, 20, 20, 0.3)), url('https://media.graphcms.com/compress/6C4V5D77SFE1ARquWgt4');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: brightness(0.2);
+}
+
+.hero h1 {
+  padding-top: 200px;
+  color: white;
+  padding-left: 5vw;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 480%;
+  margin-top: 100vh;
+  transform: skewY(16deg);
+  background-color: colorAccent;
+}
+
+.backgroundSecond {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 300%;
+  margin-top: 100vh;
+  transform: skewY(-12deg);
+  background: white;
+  box-shadow: 0 -5px 10px 5px rgba(20, 20, 20, 0.4);
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  margin-top: 125vh;
+  min-width: 400px;
+}
+
+.text {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 45vw);
+  grid-template-rows: repeat(auto-fit, 45vw);
+  grid-auto-rows: 45vw;
+  grid-auto-columns: 45vw;
+  padding-bottom: 10vh;
+}
+
+.text div {
+  padding: 5vh 5vw;
+}
+
+.text div img {
+  width: 30vw;
+  padding-top: 10vh;
+}
+
+.content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.content li {
+  color: colorAccent;
+}
+
+.content li,
+.content p {
+  font-size: 1.5vmax;
+  padding-bottom: 2vh;
+}
+
+.content h1 {
+  font-size: 4vmax;
+  padding-bottom: 5vh;
+}
+
+.colorAccentText {
+  color: colorAccent;
+}
+
+.colorAccentUnderline {
+  border-bottom: 5px solid colorAccent;
+}
+
+@media screen and (width < 900px) {
+  .text {
+    display: block;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .text ul,
+  .text h1 {
+    text-align: center;
+    padding-top: 3vh;
+  }
+
+  .text li,
+  .text p {
+    font-size: 3vmax;
+    line-height: 1.7;
+  }
+
+  .text div img {
+    display: none;
+  }
+
+  .text div {
+    padding: 0 5vw;
+  }
+
+  .backgroundSecond {
+    height: 350%;
+  }
+}

@@ -1,19 +1,110 @@
 @value Variables: '../../Variables.css';
-@value colorAccent, colorText from Variables;
+@value colorAccent from Variables;
 
-.container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #5b8ada;
+.background {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 200vh;
+  width: 200vh;
+  margin-top: -100vh;
+  border-radius: 200vh;
+  background: colorAccent;
 }
 
-.content {
-  width: 80vw;
-  display: inline-flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
+.container {
+  display: grid;
+  position: relative;
+  grid-template-columns: 50vw 50vw;
+  grid-template-rows: 100vh;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  overflow: hidden;
+}
+
+.personOne {
+  position: absolute;
+  width: 100px;
+  top: 10%;
+  left: 10%;
+}
+
+.personTwo {
+  position: absolute;
+  width: 100px;
+  top: 40%;
+  left: 40%;
+}
+
+.personThree {
+  position: absolute;
+  width: 100px;
+  top: 70%;
+  left: 70%;
+}
+
+.left,
+.right {
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+.left {
+  text-align: right;
+}
+
+.heading {
+  margin-top: 25vh;
+  margin-left: 4vmax;
+  font-size: 4vmax;
+  color: white;
+}
+
+.list {
+  margin-top: 5vh;
+  margin-left: 4vmax;
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  font-size: 2vmax;
+  line-height: 1.7;
+  color: white;
+}
+
+.button {
+  margin-top: 5vh;
+  margin-left: 4vmax;
+  font-size: 18px;
+  text-transform: capitalize;
+  background-color: white !important;
+  color: colorAccent !important;
+}
+
+.left .heading,
+.left .list,
+.left .button {
+  margin-right: 4vmax;
+  margin-left: 0;
+}
+
+@media screen and (width < 800px) {
+  .container {
+    grid-template-columns: 100vw;
+    grid-template-rows: 50vh 50vh;
+  }
+
+  .heading,
+  .list,
+  .button {
+    margin-top: 3.5vh;
+  }
+
+  .heading {
+    padding-top: 64px;
+  }
 }

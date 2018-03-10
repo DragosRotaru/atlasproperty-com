@@ -36,6 +36,12 @@ class NaturalLanguageForm extends Component {
         nodeView.push(typist);
       }
       if ((typeof node.type !== 'string' || node.typed === true) && typeof node.choices === 'object') {
+        const options = Object.keys(node.choices).map((choiceKey) => {
+          return {
+            value: choiceKey,
+            label: node.choices[choiceKey].text,
+          };
+        });
         const select = (
           <Select
             key={ [key, '-Select'].join('') }
@@ -43,7 +49,7 @@ class NaturalLanguageForm extends Component {
             value={ node.selected }
             onChange={ (evt) => { this.select(evt.target.value); } }
             label=""
-            options={ Object.keys(node.choices) }
+            options={ options }
           />
         );
         nodeView.push(select);

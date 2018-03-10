@@ -5,6 +5,9 @@ import Variables from '../../Variables.css';
 import Style from './Contact.css';
 
 class Contact extends Component {
+  componentDidMount() {
+    window.analytics.page('Contact');
+  }
   render() {
     return (
       <div className={ Style.container }>

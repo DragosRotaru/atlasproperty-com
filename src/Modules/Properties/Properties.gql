@@ -9,9 +9,12 @@
     }
     units {
       price
-      availabilityDate
       bedrooms
       bathrooms
+      media {
+        handle
+        isFeatured
+      }
     }
   }
 }

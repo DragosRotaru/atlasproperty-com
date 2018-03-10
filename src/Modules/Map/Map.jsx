@@ -19,7 +19,7 @@ const Map = compose(
     mapElement: <div style={ { height: '100%' } } />,
     center: {
       lat: 43.465267,
-      lng: -80.522608,
+      lng: -80.523608,
     },
   }),
   withScriptjs,

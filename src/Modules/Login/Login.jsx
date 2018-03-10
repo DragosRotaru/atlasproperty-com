@@ -4,6 +4,9 @@ import { Button } from 'rmwc/Button';
 import Style from './Login.css';
 
 class Login extends Component {
+  componentDidMount() {
+    window.analytics.page('Login');
+  }
   render() {
     return (
       <div className={ Style.container }>

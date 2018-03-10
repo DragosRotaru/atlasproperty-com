@@ -4,6 +4,7 @@ import DataSet from '../DataSet/DataSet';
 import InViewportDataView from '../DataView/InViewportDataView/InViewportDataView';
 import { Tile } from '../DatumView/TileDatumView/TileDatumView';
 import { Summary } from '../DatumView/SummaryDatumView/SummaryDatumView';
+import Loading from '../Loading/Loading';
 import puppyPic from '../../Images/puppyPic.jpg';
 import dataQuery from './Team.gql';
 import Style from './Team.css';
@@ -57,7 +58,7 @@ class Team extends Component {
   }
   render() {
     if (this.props.data.loading === true) {
-      return (<div>Loading...</div>);
+      return (<Loading />);
     }
     if (this.props.data.error !== undefined) {
       return (<div>{ this.props.data.error.toString() }</div>);

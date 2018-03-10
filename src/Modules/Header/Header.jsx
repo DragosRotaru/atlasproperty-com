@@ -24,39 +24,24 @@ class Header extends Component {
   }
   render() {
     const menu = ([
-      <NavLink key="/" to="/" exact activeClassName={ Style.activeNavLink }>
-        <ListItem >
-          <ListItemText className={ Style.listItemText }>Home</ListItemText>
-        </ListItem>
-      </NavLink>,
-      <NavLink key="/tenants" to="/tenants" activeClassName={ Style.activeNavLink }>
-        <ListItem >
-          <ListItemText className={ Style.listItemText }>Tenants</ListItemText>
-        </ListItem>
-      </NavLink>,
-      <NavLink key="/owners" to="/owners" activeClassName={ Style.activeNavLink }>
-        <ListItem >
-          <ListItemText className={ Style.listItemText }>Owners</ListItemText>
-        </ListItem>
-      </NavLink>,
-      <NavLink key="/company" to="/company" activeClassName={ Style.activeNavLink }>
-        <ListItem >
-          <ListItemText className={ Style.listItemText }>Company</ListItemText>
-        </ListItem>
-      </NavLink>,
       <NavLink key="/properties" to="/properties" activeClassName={ Style.activeNavLink }>
         <ListItem >
-          <ListItemText className={ Style.listItemText }>Properties</ListItemText>
+          <ListItemText className={ Style.listItemText }>Find A Place</ListItemText>
+        </ListItem>
+      </NavLink>,
+      <NavLink key="/solutions" to="/solutions" activeClassName={ Style.activeNavLink }>
+        <ListItem >
+          <ListItemText className={ Style.listItemText }>Property Solutions</ListItemText>
         </ListItem>
       </NavLink>,
       <NavLink key="/contact" to="/contact" activeClassName={ Style.activeNavLink }>
         <ListItem >
-          <ListItemText className={ Style.listItemText }>Contact</ListItemText>
+          <ListItemText className={ Style.listItemText }>Get In Touch</ListItemText>
         </ListItem>
       </NavLink>,
-      <NavLink key="/login" to="/login" activeClassName={ Style.activeNavLink }>
+      <NavLink key="/tenants" to="/tenants" activeClassName={ Style.activeNavLink }>
         <ListItem >
-          <Button raised theme="secondary-bg text-primary-on-secondary" className={ Style.loginButton }>Login</Button>
+          <Button raised theme="secondary-bg text-primary-on-secondary" className={ Style.loginButton }>For Tenants</Button>
         </ListItem>
       </NavLink>,
     ]);

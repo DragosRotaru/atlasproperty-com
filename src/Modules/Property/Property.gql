@@ -3,7 +3,6 @@ query getProperty($id: ID) {
     address
     type
     features
-    description
     media {
       handle
       isFeatured
@@ -15,6 +14,7 @@ query getProperty($id: ID) {
       availabilityDate
       utilitiesIncluded
       features
+      description
       media {
         handle
         isFeatured

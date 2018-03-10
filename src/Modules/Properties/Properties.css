@@ -106,7 +106,48 @@
   color: colorAccent;
 }
 
-@media screen and (width <= 899px) {
+.datumView {
+  width: 280px;
+  margin: 0;
+  padding: 104px 20px 20px 20px;
+  display: block;
+  background: white;
+  overflow-y: scroll;
+}
+
+.datumView div {
+  border: none;
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+.datumView div h1 {
+  font-size: 30px;
+}
+
+.datumView div h2 {
+  font-size: 20px;
+}
+
+.datumView div p {
+  font-size: 14px;
+}
+
+.datumView img {
+  width: 280px;
+  height: 280px;
+}
+
+.datumView button {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media screen and (width <= 800px) {
   .grid {
     grid-template-columns: 90vw;
     grid-template-rows: repeat(auto-fit, 90vw);
@@ -131,7 +172,7 @@
   }
 }
 
-@media screen and (width >= 900px) {
+@media screen and (width > 800px) {
   .grid {
     grid-template-columns: repeat(auto-fit, 44vw);
     grid-template-rows: repeat(auto-fit, 44vw);

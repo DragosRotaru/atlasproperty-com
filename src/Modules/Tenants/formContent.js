@@ -72,7 +72,7 @@ export default {
       },
     },
     15: {
-      text: 'property owner or investor',
+      text: 'property owner',
       type: 'interested in',
       choices: {
         16: {
@@ -84,6 +84,24 @@ export default {
           link: '/owners#buy',
         },
         18: {
+          text: 'developments',
+          link: '/owners#develop',
+        },
+      },
+    },
+    19: {
+      text: 'investor',
+      type: 'interested in',
+      choices: {
+        20: {
+          text: 'property management',
+          link: '/owners#manage',
+        },
+        21: {
+          text: 'buying property',
+          link: '/owners#buy',
+        },
+        22: {
           text: 'developments',
           link: '/owners#develop',
         },

@@ -1,10 +1,10 @@
 const SEGMENT_DEV_ID = '1z4719htsDR8bcCM0gewNIwwTvxbmMZl';
 // const SEGMENT_PROD_APP_ID = 'DevUW5byHV7rPWZmtDe2R7zDY36iI2Az';
 
-// Create a queue, but don't obliterate an existing one!
-const analytics = window.analytics = window.analytics || [];
-
 const initializeAnalytics = function initialize() {
+  // Create a queue, but don't obliterate an existing one!
+  const analytics = window.analytics = window.analytics || [];
+
   // If the snippet was invoked already show an error.
   if (!analytics.invoked || analytics.initialize) {
     // Invoked flag, to make sure the snippet
@@ -81,4 +81,5 @@ const initializeAnalytics = function initialize() {
   }
 };
 
-export { analytics, initializeAnalytics };
+
+export { initializeAnalytics };
