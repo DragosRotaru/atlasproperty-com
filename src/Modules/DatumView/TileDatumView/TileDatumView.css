@@ -10,7 +10,7 @@
   overflow: hidden;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 5px 40px rgba(0, 0, 2, 0.7);
+  box-shadow: 0 7px 10px rgba(20, 20, 20, 0.6);
   background-color: colorPrimary;
   color: white;
 }

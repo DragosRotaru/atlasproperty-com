@@ -4,7 +4,7 @@
 @value colorText, colorAccent from Variables;
 
 .grid {
-  grid-gap: 5vw;
+  grid-gap: 2vw;
   justify-content: center;
 }
 

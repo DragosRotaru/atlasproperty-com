@@ -22,12 +22,15 @@ const DataSet = (dataQuery) => {
       constructor(props) {
         super(props);
         this.state = {
+          /* eslint-disable */
+          // Its giving errors about this state not being used within the Component
           global: {
             pageSize: props.globalInit.pageSize,
             cursor: props.globalInit.cursor,
             sorts: props.globalInit.sorts,
             filters: props.globalInit.filters,
           },
+          /* eslint-enable */
           local: {
             pageSize: props.localInit.pageSize,
             cursor: props.localInit.cursor,
@@ -68,13 +71,15 @@ const DataSet = (dataQuery) => {
           return nextState;
         });
 
-        this.process = data => this.sort(this.filter(data));
+        // Sort Data Locally
         this.sort = (data) => {
           if (this.state.local.sorts.length === 0) {
             return data;
           }
           return data; // [...data].sort()
         };
+
+        // Filter Data Locally
         this.filter = (data) => {
           if (this.state.local.filters.length === 0) {
             return data;
@@ -92,10 +97,12 @@ const DataSet = (dataQuery) => {
             { ...this.props }
             dataSet={ {
               state: this.state,
-              set: (value, property, scope) => this.set(value, property, scope),
-              delta: (value, property, scope) => this.set(value, property, scope),
-              concat: (value, property, scope) => this.set(value, property, scope),
-              remove: (value, property, scope) => this.set(value, property, scope),
+              set: this.set,
+              delta: this.delta,
+              concat: this.concat,
+              remove: this.remove,
+              filter: this.filter,
+              sort: this.sort,
             } }
           />
         );

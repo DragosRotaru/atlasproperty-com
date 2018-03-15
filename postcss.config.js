@@ -5,11 +5,13 @@ const config = {
     require('postcss-cssnext'), // includes autoprefixer
     require('postcss-modules-values'),
     require('postcss-font-magician'),
-    require('postcss-reporter'),
-    /* require('doiuse')({
-      browsers: ['> 1%'],
+    require('doiuse')({
+      browsers: ['> 5%'],
+      ignore: [], // features to ignore
+      ignoreFiles: [], // file globs to match against original source file path, to ignore
     }),
-    require('cssnano')({
+    require('postcss-reporter'),
+    /* require('cssnano')({
       preset: ['default', {
         autoprefixer: false,
       }],

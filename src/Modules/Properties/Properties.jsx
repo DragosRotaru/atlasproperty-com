@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import { TabBar, Tab, TabIcon } from 'rmwc/Tabs';
 import { Drawer } from 'rmwc/Drawer';
-import Loading from '../Loading/Loading';
+// import { Drawer, DrawerHeader, DrawerContent } from 'rmwc/Drawer';
+// import { Fab } from 'rmwc/Fab';
+
 import DataSet from '../DataSet/DataSet';
 import InViewportDataView from '../DataView/InViewportDataView/InViewportDataView';
 import MapDataView from '../DataView/MapDataView/MapDataView';
 import { Tile } from '../DatumView/TileDatumView/TileDatumView';
 import { Summary } from '../DatumView/SummaryDatumView/SummaryDatumView';
-// import { Drawer, DrawerHeader, DrawerContent } from 'rmwc/Drawer';
-// import { Fab } from 'rmwc/Fab';
+import Loading from '../Loading/Loading';
 // import CheckBoxDataFilter from '../DataFilter/CheckBoxDataFilter/CheckBoxDataFilter';
 // import RadioButtonDataSort from '../DataSort/RadioButtonDataSort/RadioButtonDataSort';
+
 import Property from '../Property/Property';
 import Style from './Properties.css';
 import dataQuery from './Properties.gql';
@@ -123,7 +126,8 @@ class Properties extends Component {
             (prev.bedrooms > curr.bedrooms ? prev : curr), 0).bedrooms;
           beds = minBeds === maxBeds ? minBeds : [minBeds, ' to ', maxBeds].join('');
         }
-        tiles.push(
+
+        const tile = (
           <Tile
             { ...tileOptions }
             key={ property.id }
@@ -137,7 +141,9 @@ class Properties extends Component {
             title={ property.address }
             description={ [beds, ' rooms, ', rent, ' per room'].join('') }
           />
-          </Tile>);
+          </Tile>
+        );
+        tiles.push(tile);
       });
       return tiles;
     };

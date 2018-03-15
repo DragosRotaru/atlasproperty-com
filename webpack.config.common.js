@@ -2,6 +2,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+// const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const path = require('path');
 
@@ -68,6 +69,7 @@ const config = {
       template: indexPath,
     }),
     new HtmlWebpackHarddiskPlugin(),
+//    new DashboardPlugin(),
   ],
 };
 

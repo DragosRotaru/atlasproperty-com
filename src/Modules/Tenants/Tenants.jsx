@@ -44,16 +44,15 @@ class Tenants extends Component {
           </p><br />
           <h2>Important Info</h2><br />
             <ul>
-              <li>Fire Department – <a href="tel:"></a></li>
-              <li>Blah Blah – <a href="tel:"></a></li>
-              <li>Blah Blqh</li>
-              <li>Blah Blah</li>
+              <li>Administrative Support – <a href="mailto:admin@atlasproperty.com">admin@atlasproperty.com</a></li>
+              <li>Maintenance Support – <a href="mailto:maintenance@atlasproperty.com">maintenance@atlasproperty.com</a></li>
+              <li>Payments Support – <a href="mailto:collections@atlasproperty.com">collections@atlasproperty.com</a></li>
             </ul>
           <br />
           <h2>Links</h2>
           <br />
           <div className={ Style.buttonList }>
-            <a href="" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>FAQ</Button></a>
+            <a href="http://help.atlasproperty.com/" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>FAQ</Button></a>
             <a href="https://atlaspropertygroup.typeform.com/to/Gqtv2c" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Rent Receipt</Button></a>
             <a href="https://atlaspropertygroup.typeform.com/to/wOt21e" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Maintenance</Button></a>
             <a href="https://atlaspropertygroup.typeform.com/to/htMAE0" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Staying/Leaving</Button></a>

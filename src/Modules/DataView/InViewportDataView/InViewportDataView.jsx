@@ -5,16 +5,26 @@ import Style from './InViewportDataView.css';
 class InViewportDataView extends Component {
   constructor(props) {
     super(props);
+    this.checkCorrectSize = () =>
+      window.innerWidth <= this.props.maxWidth && window.innerWidth >= this.props.minWidth;
     this.state = {
-      isMobile: window.innerWidth <= 699,
-      inViewportIndex: window.innerWidth <= 699 ? 0 : -1,
+      correctSize: this.checkCorrectSize(),
+      inViewportIndex: this.checkCorrectSize() ? 0 : -1,
     };
     this.updateDimensions = () => {
-      if (window.innerWidth <= 699 && !this.state.isMobile) {
-        this.setState({ isMobile: true });
+      if (this.checkCorrectSize()) {
+        this.setState((prevState) => {
+          const nextState = prevState;
+          nextState.correctSize = true;
+          return nextState;
+        });
         window.addEventListener('scroll', this.handleScroll);
-      } else if (window.innerWidth > 699 && this.state.isMobile) {
-        this.setState({ isMobile: false });
+      } else if (this.state.correctSize) {
+        this.setState((prevState) => {
+          const nextState = prevState;
+          nextState.correctSize = false;
+          return nextState;
+        });
         window.removeEventListener('scroll', this.handleScroll);
       }
     };
@@ -23,12 +33,16 @@ class InViewportDataView extends Component {
       const newInViewIndex =
       -Math.floor(domRect.top / (domRect.height / (this.container.children.length)));
       if (this.state.inViewportIndex !== newInViewIndex) {
-        this.setState({ inViewportIndex: newInViewIndex });
+        this.setState((prevState) => {
+          const nextState = prevState;
+          nextState.inViewportIndex = newInViewIndex;
+          return nextState;
+        });
       }
     };
   }
   componentDidMount() {
-    if (window.innerWidth <= 699) {
+    if (this.checkCorrectSize()) {
       window.addEventListener('scroll', this.handleScroll);
     }
     window.addEventListener('resize', this.updateDimensions);
@@ -37,6 +51,8 @@ class InViewportDataView extends Component {
   // Assumes every object in data prop contains unique id
   shouldComponentUpdate(nextProps, nextState) {
     if (nextProps.className !== this.props.className ||
+      nextProps.data.minWidth !== this.props.minWidth ||
+      nextProps.data.maxWidth !== this.props.maxWidth ||
       nextProps.data.length !== this.props.data.length ||
       nextProps.dataViewGenerator !== this.props.dataViewGenerator ||
       nextState.inViewportIndex !== this.state.inViewportIndex
@@ -70,9 +86,13 @@ InViewportDataView.propTypes = {
   className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   keyAccessor: PropTypes.func.isRequired,
+  maxWidth: PropTypes.number,
+  minWidth: PropTypes.number,
 };
 InViewportDataView.defaultProps = {
   className: '',
+  maxWidth: 800,
+  minWidth: 0,
 };
 
 export default InViewportDataView;
