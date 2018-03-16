@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Checkbox } from 'rmwc';
+import { Checkbox } from 'rmwc/Checkbox';
 
 
 const filterGet = (label, filters) => (filters.findIndex(x => x.id === label) > -1);

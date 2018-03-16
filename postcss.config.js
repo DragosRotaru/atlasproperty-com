@@ -6,11 +6,15 @@ const config = {
     require('postcss-modules-values'),
     require('postcss-font-magician'),
     require('doiuse')({
-      browsers: ['> 5%'],
+      browsers: [
+        '>10%',
+      ],
       ignore: [], // features to ignore
       ignoreFiles: [], // file globs to match against original source file path, to ignore
     }),
-    require('postcss-reporter'),
+    require('postcss-reporter')({
+      clearAllMessages: true,
+    }),
     /* require('cssnano')({
       preset: ['default', {
         autoprefixer: false,

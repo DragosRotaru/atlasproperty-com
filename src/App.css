@@ -1,0 +1,49 @@
+@value Variables: './Variables.css';
+@value colorBackground, colorText from Variables;
+
+@font-face {
+  font-family: IBMPlexSans;
+  src: url('@ibm/type/fonts/sans/web/woff2/IBMPlexSans-Regular-Latin1.woff2');
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 0;
+}
+
+a,
+body,
+div,
+html,
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+  font-family: IBMPlexSans, 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: colorText;
+}
+
+h1 {
+  font-size: 5vh;
+}
+
+h2 {
+  font-size: 4vh;
+}
+
+h3 {
+  font-size: 3vh;
+}
+
+h4 {
+  font-size: 2vh;
+}
+
+p {
+  font-size: 1vh;
+}

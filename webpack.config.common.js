@@ -1,5 +1,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 // const DashboardPlugin = require('webpack-dashboard/plugin');
@@ -7,7 +9,7 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const path = require('path');
 
 const buildPath = path.resolve(__dirname, 'build');
-const mainPath = path.resolve(__dirname, 'src/Root.jsx');
+const mainPath = path.resolve(__dirname, 'src/Main.jsx');
 const indexPath = path.resolve(__dirname, 'src/index.ejs');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 
@@ -64,12 +66,43 @@ const config = {
   plugins: [
     new CleanWebpackPlugin(['build']),
     new ExtractTextPlugin('styles.css'),
+    new FaviconsWebpackPlugin({
+      logo: './src/Static/favicon.png',
+      // The prefix for all image files (might be a folder or a name)
+      prefix: 'icons-[hash]/',
+      // Emit all stats of the generated icons
+      emitStats: false,
+      // The name of the json containing all favicon information
+      statsFilename: 'iconstats-[hash].json',
+      // Generate a cache file with control hashes and
+      // don't rebuild the favicons until those hashes change
+      persistentCache: true,
+      // Inject the html into the html-webpack-plugin
+      inject: true,
+      // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
+      background: '#5b8ada',
+      // favicon app title (see https://github.com/haydenbleasel/favicons#usage)
+      title: process.env.APP_NAME,
+
+      // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        favicons: true,
+        firefox: true,
+        opengraph: true,
+        twitter: true,
+        windows: true,
+      }
+    }),
     new HtmlWebpackPlugin({
-      title: 'DEVELOPMENT',
+      title: process.env.APP_NAME,
       template: indexPath,
     }),
     new HtmlWebpackHarddiskPlugin(),
-//    new DashboardPlugin(),
+    new BundleAnalyzerPlugin()
+//  new DashboardPlugin(),
   ],
 };
 

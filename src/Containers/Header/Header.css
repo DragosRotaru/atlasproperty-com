@@ -1,0 +1,67 @@
+@value Variables: '../../Variables.css';
+@value colorPrimary, colorAccent from Variables;
+
+.header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.toolbar {
+  background-color: rgba(255, 255, 255);
+  height: 64px;
+}
+
+.announcementBar {
+
+}
+
+.logo {
+  margin-left: 20px;
+  width: auto;
+  height: 44px;
+}
+
+.list {
+  display: inline-flex;
+  margin-right: 20px;
+}
+
+.list a {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  user-select: none;
+  text-decoration: none;
+  outline: none;
+}
+
+.listItemText {
+  color: colorPrimary;
+}
+
+.activeNavLink .listItemText {
+  color: colorAccent;
+}
+
+.loginButton,
+.menuButton {
+  text-transform: capitalize;
+  background-color: colorAccent !important;
+}
+
+.loginButton {
+  min-width: 120px !important;
+}
+
+@media screen and (width <= 999px) {
+  .list a {
+    display: none;
+  }
+}
+
+@media screen and (width >= 1000px) {
+  .menuButton {
+    display: none;
+  }
+}

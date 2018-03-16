@@ -2,6 +2,7 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
+    "compat/compat": "error",
     "react/jsx-curly-spacing": [2, "always"],
     "react/prefer-stateless-function": [0],
     "import/no-unresolved": [2, { caseSensitive: false }],
@@ -15,6 +16,7 @@
   "plugins": [
     "babel",
     "react",
+    "compat",
   ],
   "env": {
     "browser": true,
