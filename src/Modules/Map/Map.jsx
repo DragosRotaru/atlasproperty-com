@@ -29,6 +29,7 @@ const Map = compose(
     isMarkerShown
     defaultZoom={ 18 }
     defaultCenter={ props.center }
+    className={ props.className }
     options={ { disableDefaultUI: true, styles: defaultStyle, minZoom: 3 } }
   >
     <Marker position={ { lat: 43.465267, lng: -80.522608 } } icon={ ['http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|', Color(Variables.colorAccent).hex().substr(1)].join('') } />

@@ -14,7 +14,7 @@ class Contact extends Component {
   render() {
     return (
       <div className={ Style.container }>
-        <Map />
+        <div className={ Style.map }><Map /></div>
         <div className={ Style.content } >
           <center>
             <h1>Get In Touch</h1>

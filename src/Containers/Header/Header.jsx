@@ -75,7 +75,7 @@ class Header extends Component {
           </ToolbarRow>
         </Toolbar>
       </Elevation>,
-      <AnnouncementBar />,
+      <AnnouncementBar key="AnnouncementBar" />,
       <Drawer
         temporary
         key="drawer"

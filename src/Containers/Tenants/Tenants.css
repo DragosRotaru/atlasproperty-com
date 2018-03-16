@@ -125,4 +125,15 @@
     text-align: center;
     justify-content: center;
   }
+
+  .content h1 {
+    text-align: center;
+    padding-top: 3vh;
+  }
+
+  .content p,
+  .content li {
+    font-size: 3vmax;
+    line-height: 1.7;
+  }
 }

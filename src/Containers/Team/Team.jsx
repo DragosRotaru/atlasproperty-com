@@ -86,7 +86,7 @@ class Team extends Component<Props> {
     }
     return (
       <InViewportDataView
-        className={ Style.grid }
+        className={ [Style.grid, this.props.className ].join(' ') }
         data={ this.props.data.allTeamMembers }
         keyAccessor={ datum => datum.id }
         dataViewGenerator={ (data, inViewportIndex) => this.customGrid(data, inViewportIndex) }
@@ -94,5 +94,8 @@ class Team extends Component<Props> {
     );
   }
 }
+Team.defaultProps = {
+  className: '',
+};
 
 export default DataSet(dataQuery)(Team);

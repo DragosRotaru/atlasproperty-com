@@ -21,36 +21,27 @@
   padding-left: 5vw;
 }
 
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
+.blueBackground {
   width: 100vw;
-  height: 480%;
-  margin-top: 100vh;
+  margin-top: -10vh;
   transform: skewY(16deg);
   background-color: colorAccent;
 }
 
-.backgroundSecond {
-  position: absolute;
-  top: 0;
-  left: 0;
+.whiteForeground {
   width: 100vw;
-  height: 300%;
-  margin-top: 100vh;
-  transform: skewY(-12deg);
+  transform: skewY(-26deg);
   background: white;
   box-shadow: 0 -5px 10px 5px rgba(20, 20, 20, 0.4);
 }
 
 .content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  margin-top: 125vh;
-  min-width: 400px;
+  transform: skewY(11.25deg);
+  padding-top: 20vh;
+}
+
+.team {
+  transform: skewY(-16deg);
 }
 
 .text {

@@ -69,6 +69,8 @@ class AnnouncementBar extends Component<Props> {
           body={ latest.details }
           open={ this.state.dialogOpen }
           onClose={ () => this.setState({ dialogOpen: false, open: false }) }
+          cancelLabel="Ok"
+          acceptLabel=""
         />
       );
     }

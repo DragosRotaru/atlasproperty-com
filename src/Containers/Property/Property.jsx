@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Chip, ChipText, ChipSet, Button } from 'rmwc/Chip';
+import * as typeformEmbed from '@typeform/embed';
+// import { Chip, ChipText, ChipSet } from 'rmwc/Chip';
+import { Button } from 'rmwc/Button';
 import Lightbox from 'react-images';
 import Datum from '../../Modules/Datum/Datum';
 import Style from './Property.css';
@@ -26,6 +28,15 @@ const mediaURLAccessor = (property) => {
   return [originalURL, result].join('');
 };
 
+const form = typeformEmbed.makePopup(
+  'https://atlaspropertygroup.typeform.com/to/sTaEFw',
+  {
+    mode: 'popup',
+    hideHeaders: true,
+    hideFooters: true,
+  },
+);
+
 class Property extends Component {
   constructor(props) {
     super(props);
@@ -33,6 +44,7 @@ class Property extends Component {
       isLightBoxOpen: false,
       lightBoxCurrentImage: 0,
     };
+    this.book = form;
     this.openLightBox = () => {
       this.setState({ isLightBoxOpen: true });
     };
@@ -100,9 +112,10 @@ class Property extends Component {
         (prev.bathrooms > curr.bathrooms ? prev : curr), 0).bathrooms;
       baths = (<h2 className={ Style.fields }>Baths <span className={ Style.accent }>{ minBaths === maxBaths ? minBaths : [minBaths, ' to ', maxBaths].join('') }</span></h2>);
 
-      const date = new Date(this.props.data.Property.units.reduce((prev, curr) =>
-        (new Date(prev.availabilityDate) < new Date(curr.availabilityDate) ? prev : curr)
-          .availabilityDate, 0)
+      const date = new Date(this.props.data.Property.units.filter(unit => unit.availabilityDate !== null)
+        .reduce((prev, curr) =>
+          (new Date(prev.availabilityDate) < new Date(curr.availabilityDate) ? prev : curr)
+            .availabilityDate, 0)
         .substring(0, 10))
         .toLocaleDateString();
 
@@ -113,11 +126,12 @@ class Property extends Component {
           Available <span className={ Style.accent }>{ date }</span>
         </h2>
       );
-
-      description = ([
-        <h2 key="description_title" className={ Style.fields }>About</h2>,
-        <p key="description" className={ Style.description } >{ this.props.data.Property.units[0].description }</p>
-      ]);
+      if (this.props.data.Property.units[0].description.length > 1) {
+        description = ([
+          <h2 key="description_title" className={ Style.fields }>About</h2>,
+          <p key="description" className={ Style.description } >{ this.props.data.Property.units[0].description }</p>
+        ]);
+      }
 
       /*
       const utilitiesChips = this.props.data.Property.units[0].utilitiesIncluded.map(utility =>
@@ -158,6 +172,7 @@ class Property extends Component {
               raised
               theme="secondary-bg text-primary-on-secondary"
               className={ Style.button }
+              onClick={ () => this.book.open() }
             >Book Tour
             </Button>
           </div>
@@ -174,7 +189,6 @@ class Property extends Component {
       </div>,
       <Lightbox
         key="Lightbox"
-        className={ Style.lightBox }
         images={ images }
         currentImage={ this.state.lightBoxCurrentImage }
         isOpen={ this.state.isLightBoxOpen }
