@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import { SimpleDialog } from 'rmwc/Dialog';
 import Debug from 'debug';
-import DataSet from '../DataSet/DataSet';
+import DataSet from '../../Modules/DataSet/DataSet';
 import Style from './AnnouncementBar.css';
 import dataQuery from './AnnouncementBar.gql';
 

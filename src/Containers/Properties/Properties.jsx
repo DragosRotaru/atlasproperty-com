@@ -58,10 +58,12 @@ class Properties extends Component {
         let rent = '?';
 
         if (property.units.length > 0) {
-          const minRent = property.units.reduce((prev, curr) =>
-            (prev.price < curr.price ? prev : curr), 0).price;
-          const maxRent = property.units.reduce((prev, curr) =>
-            (prev.price > curr.price ? prev : curr), 0).price;
+          const minRentUnit = property.units.reduce((prev, curr) =>
+            ((prev.price / prev.bedrooms) < (curr.price / curr.bedrooms) ? prev : curr), 0);
+          const minRent = Math.floor(minRentUnit.price / minRentUnit.bedrooms);
+          const maxRentUnit = property.units.reduce((prev, curr) =>
+            ((prev.price / prev.bedrooms) > (curr.price / curr.bedrooms) ? prev : curr), 0);
+          const maxRent = Math.floor(maxRentUnit.price / maxRentUnit.bedrooms);
           rent = minRent === maxRent ? ['$', minRent].join('') : ['$', minRent, '–', maxRent].join('');
 
           const minBeds = property.units.reduce((prev, curr) =>

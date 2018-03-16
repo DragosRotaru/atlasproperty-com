@@ -9,7 +9,7 @@ import { List, ListItem, ListItemText } from 'rmwc/List';
 import { Elevation } from 'rmwc/Elevation';
 import { Button } from 'rmwc/Button';
 
-import AnnouncementBar from '../../Modules/AnnouncementBar/AnnouncementBar';
+import AnnouncementBar from '../AnnouncementBar/AnnouncementBar';
 import logo from '../../Static/Logo.svg';
 import Style from './Header.css';
 

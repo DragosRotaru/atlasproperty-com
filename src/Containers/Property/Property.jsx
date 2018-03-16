@@ -81,6 +81,7 @@ class Property extends Component {
     if (this.props.data.error !== undefined) {
       return (<div>{ this.props.data.error.toString() }</div>);
     }
+    const property = this.props.data.Property;
     let rent = '';
     let beds = '';
     let baths = '';
@@ -88,31 +89,33 @@ class Property extends Component {
     let description = '';
     // let utilities = '';
     // let features = '';
-    const images = this.props.data.Property.media.map((item) => {
+    const images = property.media.map((item) => {
       return {
         src: [originalURL, item.handle].join(''),
       };
     });
-    if (this.props.data.Property.units.length > 0) {
-      const minRent = this.props.data.Property.units.reduce((prev, curr) =>
-        (prev.price < curr.price ? prev : curr), 0).price;
-      const maxRent = this.props.data.Property.units.reduce((prev, curr) =>
-        (prev.price > curr.price ? prev : curr), 0).price;
+    if (property.units.length > 0) {
+      const minRentUnit = property.units.reduce((prev, curr) =>
+        ((prev.price / prev.bedrooms) < (curr.price / curr.bedrooms) ? prev : curr), 0);
+      const minRent = Math.floor(minRentUnit.price / minRentUnit.bedrooms);
+      const maxRentUnit = property.units.reduce((prev, curr) =>
+        ((prev.price / prev.bedrooms) > (curr.price / curr.bedrooms) ? prev : curr), 0);
+      const maxRent = Math.floor(maxRentUnit.price / maxRentUnit.bedrooms);
       rent = (<h2 className={ Style.fields }>Rent <span className={ Style.accent }>{ minRent === maxRent ? minRent : ['$', minRent, '–', maxRent].join('') }</span></h2>);
 
-      const minBeds = this.props.data.Property.units.reduce((prev, curr) =>
+      const minBeds = property.units.reduce((prev, curr) =>
         (prev.bedrooms < curr.bedrooms ? prev : curr), 0).bedrooms;
-      const maxBeds = this.props.data.Property.units.reduce((prev, curr) =>
+      const maxBeds = property.units.reduce((prev, curr) =>
         (prev.bedrooms > curr.bedrooms ? prev : curr), 0).bedrooms;
       beds = (<h2 className={ Style.fields }>Beds <span className={ Style.accent }>{ minBeds === maxBeds ? minBeds : [minBeds, ' to ', maxBeds].join('') }</span></h2>);
 
-      const minBaths = this.props.data.Property.units.reduce((prev, curr) =>
+      const minBaths = property.units.reduce((prev, curr) =>
         (prev.bathrooms < curr.bathrooms ? prev : curr), 0).bathrooms;
-      const maxBaths = this.props.data.Property.units.reduce((prev, curr) =>
+      const maxBaths = property.units.reduce((prev, curr) =>
         (prev.bathrooms > curr.bathrooms ? prev : curr), 0).bathrooms;
       baths = (<h2 className={ Style.fields }>Baths <span className={ Style.accent }>{ minBaths === maxBaths ? minBaths : [minBaths, ' to ', maxBaths].join('') }</span></h2>);
 
-      const date = new Date(this.props.data.Property.units.filter(unit => unit.availabilityDate !== null)
+      const date = new Date(property.units.filter(unit => unit.availabilityDate !== null)
         .reduce((prev, curr) =>
           (new Date(prev.availabilityDate) < new Date(curr.availabilityDate) ? prev : curr)
             .availabilityDate, 0)
@@ -126,25 +129,25 @@ class Property extends Component {
           Available <span className={ Style.accent }>{ date }</span>
         </h2>
       );
-      if (this.props.data.Property.units[0].description.length > 1) {
+      if (property.units[0].description.length > 1) {
         description = ([
           <h2 key="description_title" className={ Style.fields }>About</h2>,
-          <p key="description" className={ Style.description } >{ this.props.data.Property.units[0].description }</p>
+          <p key="description" className={ Style.description } >{ property.units[0].description }</p>
         ]);
       }
 
       /*
-      const utilitiesChips = this.props.data.Property.units[0].utilitiesIncluded.map(utility =>
+      const utilitiesChips = property.units[0].utilitiesIncluded.map(utility =>
         <Chip key={ utility }><ChipText>{ utility }</ChipText></Chip>);
 
       utilities = ([<h2 className={ Style.fields }>Utilities Included: </h2>, <ChipSet>{ utilitiesChips }</ChipSet>]);
 
-      const featuresChips = this.props.data.Property.features.map(feature =>
+      const featuresChips = property.features.map(feature =>
         <Chip key={ feature }><ChipText>{ feature }</ChipText></Chip>);
 
       features = ([<h2 className={ Style.fields }>Features: </h2>, <ChipSet>{ featuresChips }</ChipSet>]);
       */
-      this.props.data.Property.units.forEach((unit) => {
+      property.units.forEach((unit) => {
         unit.media.forEach((media) => {
           images.push({
             src: [originalURL, media.handle].join(''),
@@ -156,8 +159,8 @@ class Property extends Component {
       <div key="container" className={ [Style.container, this.props.className].join(' ') } >
         <div className={ Style.media }>
           <img
-            src={ mediaURLAccessor(this.props.data.Property) }
-            alt={ this.props.data.Property.address }
+            src={ mediaURLAccessor(property) }
+            alt={ property.address }
           />
           <div className={ Style.buttons }>
             { this.props.nested ? '' : <Button raised theme="secondary-bg text-primary-on-secondary" className={ Style.button } onClick={ this.goBack }>Go Back</Button> }
@@ -178,8 +181,8 @@ class Property extends Component {
           </div>
         </div>
         <div className={ Style.content }>
-          <h1 className={ Style.title }>{ this.props.data.Property.address }</h1>
-          <h2 className={ Style.subTitle }>{ this.props.data.Property.type }</h2>
+          <h1 className={ Style.title }>{ property.address }</h1>
+          <h2 className={ Style.subTitle }>{ property.type }</h2>
           { rent }
           { beds }
           { baths }
