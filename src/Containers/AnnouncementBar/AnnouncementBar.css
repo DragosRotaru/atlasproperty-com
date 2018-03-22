@@ -14,7 +14,8 @@
   height: auto;
   z-index: 1000;
   text-align: center;
-  background-color: rgb(244, 67, 54);
+  background-color: colorAccent;
+  box-shadow: 0 5px 5px rgba(20, 20, 20, 0.3);
   color: white;
   line-height: 2;
   vertical-align: middle;

@@ -20,6 +20,7 @@ type Props = {
       name: string,
       title: string,
       email: string,
+      priority: number,
       portrait: {
         handle: string,
         mimeType: string,
@@ -27,7 +28,8 @@ type Props = {
     }>,
     error: {},
     loading: bool,
-  }
+  },
+  className: string,
 };
 
 class Team extends Component<Props> {
@@ -44,7 +46,16 @@ class Team extends Component<Props> {
         align: 'right',
       };
       const tiles = [];
-      data.forEach((teamMember, i) => {
+      const temp = [].concat(data);
+      temp.sort((a, b) => {
+        if (a.priority < b.priority) {
+          return -1;
+        } else if (a.priority > b.priority) {
+          return 1;
+        }
+        return 0;
+      });
+      temp.forEach((teamMember, i) => {
         const tile = (
           <Tile
             { ...tileOptions }
@@ -86,7 +97,7 @@ class Team extends Component<Props> {
     }
     return (
       <InViewportDataView
-        className={ [Style.grid, this.props.className ].join(' ') }
+        className={ [Style.grid, this.props.className].join(' ') }
         data={ this.props.data.allTeamMembers }
         keyAccessor={ datum => datum.id }
         dataViewGenerator={ (data, inViewportIndex) => this.customGrid(data, inViewportIndex) }

@@ -38,66 +38,49 @@
   color: white;
 }
 
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
+.blueBackground {
   width: 100vw;
-  height: 150%;
-  margin-top: 100vh;
+  margin-top: -10vh;
   transform: skewY(16deg);
   background-color: colorAccent;
 }
 
-.backgroundSecond {
-  position: absolute;
-  top: 0;
-  left: 0;
+.whiteForeground {
   width: 100vw;
-  height: 130%;
-  margin-top: 100vh;
-  transform: skewY(-12deg);
+  transform: skewY(-26deg);
   background: white;
   box-shadow: 0 -5px 10px 5px rgba(20, 20, 20, 0.4);
 }
 
-.container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  margin-top: 125vh;
-  min-width: 400px;
-}
-
 .content {
-  margin: 0 10vh;
+  transform: skewY(11.25deg);
+  padding: 20vh 10vw;
 }
 
-.content h1 {
-  font-size: 4vmax;
+.text h1 {
+  font-size: 4vh;
 }
 
-.content h2 {
-  font-size: 3.5vmax;
+.text h2 {
+  font-size: 3.5vh;
 }
 
-.content p,
-.content li {
-  font-size: 2vmax;
+.text p,
+.text li {
+  font-size: 2vh;
 }
 
-.content ul {
+.text ul {
   list-style: none;
   padding: 0;
 }
 
-.content .buttonList {
+.text .buttonList {
   display: inline-flex;
   flex-wrap: wrap;
 }
 
-.content .button {
+.text .button {
   color: colorAccent !important;
   border: solid colorAccent 2px;
   margin-right: 10px;
@@ -109,15 +92,14 @@
   font-size: 2vh;
 }
 
-.content .button:hover {
+.text .button:hover {
   color: white !important;
   background-color: colorAccent !important;
   border: solid colorAccent 2px;
 }
 
 @media screen and (width < 800px) {
-  .container {
-    margin-top: 110vh;
+  .content {
     text-align: center;
   }
 
@@ -126,14 +108,14 @@
     justify-content: center;
   }
 
-  .content h1 {
+  .text h1 {
     text-align: center;
     padding-top: 3vh;
   }
 
-  .content p,
-  .content li {
-    font-size: 3vmax;
+  .text p,
+  .text li {
+    font-size: 3vh;
     line-height: 1.7;
   }
 }

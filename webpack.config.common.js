@@ -1,7 +1,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+//const [BundleAnalyzerPlugin] = require('webpack-bundle-analyzer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 // const DashboardPlugin = require('webpack-dashboard/plugin');
@@ -94,14 +94,14 @@ const config = {
         opengraph: true,
         twitter: true,
         windows: true,
-      }
+      },
     }),
     new HtmlWebpackPlugin({
       title: process.env.APP_NAME,
       template: indexPath,
     }),
     new HtmlWebpackHarddiskPlugin(),
-    new BundleAnalyzerPlugin()
+//    new BundleAnalyzerPlugin(),
 //  new DashboardPlugin(),
   ],
 };

@@ -32,32 +32,34 @@ class Tenants extends Component {
           </div>
         </center>
       </div>,
-      <div key="background" className={ Style.background } />,
-      <div key="backgroundSecond" className={ Style.backgroundSecond } />,
-      <div key="container" className={ Style.container } id="container">
-        <div key="content" className={ Style.content } id="content">
-          <h1>Resources</h1><br />
-          <p>
-            Below you will find relevant information and links.
-            Our team is working hard to provide our tenants with the best possible
-            experience – If something isn't working, please email us at info@atlasproperty.com.
-          </p><br />
-          <h2>Important Info</h2><br />
-            <ul>
-              <li>Administrative Support – <a href="mailto:admin@atlasproperty.com">admin@atlasproperty.com</a></li>
-              <li>Maintenance Support – <a href="mailto:maintenance@atlasproperty.com">maintenance@atlasproperty.com</a></li>
-              <li>Payments Support – <a href="mailto:collections@atlasproperty.com">collections@atlasproperty.com</a></li>
-            </ul>
-          <br />
-          <h2>Links</h2>
-          <br />
-          <div className={ Style.buttonList }>
-            <a href="http://help.atlasproperty.com/" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>FAQ</Button></a>
-            <a href="https://atlaspropertygroup.typeform.com/to/Gqtv2c" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Rent Receipt</Button></a>
-            <a href="https://atlaspropertygroup.typeform.com/to/wOt21e" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Maintenance</Button></a>
-            <a href="https://atlaspropertygroup.typeform.com/to/htMAE0" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Staying/Leaving</Button></a>
-            <a href="https://atlaspropertygroup.typeform.com/to/VTOzC1" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Cleaning Service</Button></a>
-            <a href="https://atlaspropertygroup.typeform.com/to/stxutk" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Deficiency Checklist</Button></a>
+      <div key="background" className={ Style.blueBackground }>
+        <div key="backgroundSecond" className={ Style.whiteForeground }>
+          <div key="container" className={ Style.content } id="container">
+            <div key="content" className={ Style.text } id="content">
+              <h1>Resources</h1><br />
+              <p>
+                Below you will find relevant information and links.
+                Our team is working hard to provide our tenants with the best possible
+                experience – If something isn't working, please email us at info@atlasproperty.com.
+              </p><br />
+              <h2>Important Info</h2><br />
+                <ul>
+                  <li>Administrative Support – <a href="mailto:admin@atlasproperty.com">admin@atlasproperty.com</a></li>
+                  <li>Maintenance Support – <a href="mailto:maintenance@atlasproperty.com">maintenance@atlasproperty.com</a></li>
+                  <li>Payments Support – <a href="mailto:collections@atlasproperty.com">collections@atlasproperty.com</a></li>
+                </ul>
+              <br />
+              <h2>Links</h2>
+              <br />
+              <div className={ Style.buttonList }>
+                <a href="http://help.atlasproperty.com/" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>FAQ</Button></a>
+                <a href="https://atlaspropertygroup.typeform.com/to/Gqtv2c" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Rent Receipt</Button></a>
+                <a href="https://atlaspropertygroup.typeform.com/to/wOt21e" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Maintenance</Button></a>
+                <a href="https://atlaspropertygroup.typeform.com/to/htMAE0" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Staying/Leaving</Button></a>
+                <a href="https://atlaspropertygroup.typeform.com/to/VTOzC1" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Cleaning Service</Button></a>
+                <a href="https://atlaspropertygroup.typeform.com/to/stxutk" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Deficiency Checklist</Button></a>
+              </div>
+            </div>
           </div>
         </div>
       </div>,

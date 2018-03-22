@@ -4,6 +4,7 @@
     name
     title
     email
+    priority
     portrait {
       handle
       mimeType
