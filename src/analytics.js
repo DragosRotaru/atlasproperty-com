@@ -1,5 +1,5 @@
-const SEGMENT_DEV_ID = '1z4719htsDR8bcCM0gewNIwwTvxbmMZl';
-// const SEGMENT_PROD_APP_ID = 'DevUW5byHV7rPWZmtDe2R7zDY36iI2Az';
+//const SEGMENT_DEV_ID = '1z4719htsDR8bcCM0gewNIwwTvxbmMZl';
+const SEGMENT_PROD_APP_ID = 'DevUW5byHV7rPWZmtDe2R7zDY36iI2Az';
 
 const initializeAnalytics = function initialize() {
   // Create a queue, but don't obliterate an existing one!
@@ -74,7 +74,7 @@ const initializeAnalytics = function initialize() {
 
     // Load Analytics.js with your key, which will automatically
     // load the tools you've enabled for your account. Boosh!
-    analytics.load(SEGMENT_DEV_ID);
+    analytics.load(SEGMENT_PROD_APP_ID);
     analytics.page();
   } else if (window.console && console.error) {
     console.error('Segment snippet included twice.');

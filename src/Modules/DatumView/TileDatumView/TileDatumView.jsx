@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import Style from './TileDatumView.css';
 
 const TileOptions = {
@@ -39,10 +38,8 @@ class Tile extends Component {
             this.props.className,
           ].join(' ') }
         >
-          <Link to={ this.props.to } >
-            <img src={ this.props.mediaURL } alt={ this.props.accessibility } />
-            { this.props.children }
-          </Link>
+          <img src={ this.props.mediaURL } alt={ this.props.accessibility } />
+          { this.props.children }
         </div>
       );
     } else if (this.props.color === 'video-white' && ['video/webm', 'video/mp4', 'video/ogg'].indexOf(this.props.mimeType) > -1) {
@@ -61,14 +58,12 @@ class Tile extends Component {
           onFocus={ this.playVideo }
           onBlur={ this.pauseVideo }
         >
-          <Link to={ this.props.to } >
-            <video ref={ (video) => { this.video = video; } } muted loop>
-              <track kind="captions" src={ this.props.accessibility } />
-              <source src={ this.props.mediaURL } type={ this.props.mimeType } />
-              Your browser doesnt support HTML5 video
-            </video>
-            { this.props.children }
-          </Link>
+          <video ref={ (video) => { this.video = video; } } muted loop>
+            <track kind="captions" src={ this.props.accessibility } />
+            <source src={ this.props.mediaURL } type={ this.props.mimeType } />
+            Your browser doesnt support HTML5 video
+          </video>
+          { this.props.children }
         </div>
       );
     }
@@ -83,9 +78,7 @@ class Tile extends Component {
           this.props.className,
         ].join(' ') }
       >
-        <Link to={ this.props.to } >
-          { this.props.children }
-        </Link>
+        { this.props.children }
       </div>
     );
   }

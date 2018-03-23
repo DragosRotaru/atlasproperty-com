@@ -19,7 +19,6 @@ type Props = {
       id: string,
       name: string,
       title: string,
-      email: string,
       priority: number,
       portrait: {
         handle: string,

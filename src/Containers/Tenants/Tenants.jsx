@@ -32,10 +32,11 @@ class Tenants extends Component {
           </div>
         </center>
       </div>,
+      <div key="anchor" id="anchor" />,
       <div key="background" className={ Style.blueBackground }>
         <div key="backgroundSecond" className={ Style.whiteForeground }>
-          <div key="container" className={ Style.content } id="container">
-            <div key="content" className={ Style.text } id="content">
+          <div key="container" className={ Style.content }>
+            <div key="content" className={ Style.text }>
               <h1>Resources</h1><br />
               <p>
                 Below you will find relevant information and links.

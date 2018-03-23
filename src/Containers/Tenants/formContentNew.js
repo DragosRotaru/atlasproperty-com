@@ -15,7 +15,7 @@ export default {
     },
     14: {
       text: 'something else',
-      href: '/tenants/#container',
+      href: '/tenants/#anchor',
     },
   },
 };

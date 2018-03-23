@@ -2,7 +2,7 @@
 @value colorBackgroundSecondary, colorPrimary, colorAccent from Variables;
 
 .hero {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-flow: column wrap;
@@ -22,45 +22,55 @@
 }
 
 .blueBackground {
-  width: 100vw;
+  width: 100%;
   margin-top: -10vh;
   transform: skewY(16deg);
   background-color: colorAccent;
 }
 
 .whiteForeground {
-  width: 100vw;
+  width: 100%;
   transform: skewY(-26deg);
   background: white;
   box-shadow: 0 -5px 10px 5px rgba(20, 20, 20, 0.4);
 }
 
 .content {
+  width: 100%;
   transform: skewY(11.25deg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 50vw);
+  grid-auto-rows: auto;
+  justify-content: center;
   padding-top: 20vh;
 }
 
-.team {
-  transform: skewY(-16deg);
+.content div {
+  padding: 10vh 5vw;
 }
 
-.text {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, 45vw);
-  grid-template-rows: repeat(auto-fit, 45vw);
-  grid-auto-rows: 45vw;
-  grid-auto-columns: 45vw;
-  padding-bottom: 10vh;
+.wide {
+  grid-area: span 1 / span 2;
+  text-align: center;
 }
 
-.text div {
-  padding: 5vh 5vw;
+.graphics {
+  text-align: center;
 }
 
-.text div img {
-  width: 30vw;
-  padding-top: 10vh;
+.graphics img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.content h1 {
+  font-size: 7vh;
+  padding-bottom: 5vh;
+}
+
+.content h2 {
+  font-size: 5vh;
+  padding-bottom: 5vh;
 }
 
 .content ul {
@@ -70,55 +80,38 @@
 
 .content li {
   color: colorAccent;
+  line-height: 2;
+  font-size: 3vh;
 }
 
-.content li,
 .content p {
-  font-size: 1.5vmax;
-  padding-bottom: 2vh;
+  font-size: 3vh;
 }
 
-.content h1 {
-  font-size: 4vmax;
-  padding-bottom: 5vh;
-}
-
-.colorAccentText {
-  color: colorAccent;
-}
-
-.colorAccentUnderline {
-  border-bottom: 5px solid colorAccent;
+.team {
+  transform: skewY(-16deg);
 }
 
 @media screen and (width < 900px) {
-  .text {
-    display: block;
-    justify-content: center;
-    width: 100%;
+  .content {
+    grid-template-columns: 100vw;
+    grid-auto-rows: auto;
+    padding-top: 10vh;
   }
 
-  .text ul,
-  .text h1 {
+  .wide {
+    grid-area: span 1 / span 1;
+  }
+
+  .content div {
     text-align: center;
-    padding-top: 3vh;
-  }
-
-  .text li,
-  .text p {
-    font-size: 3vmax;
-    line-height: 1.7;
-  }
-
-  .text div img {
-    display: none;
-  }
-
-  .text div {
     padding: 0 5vw;
   }
+  .content ul {
+    padding-bottom: 5vh;
+  }
 
-  .backgroundSecond {
-    height: 350%;
+  .graphics {
+    display: none;
   }
 }
