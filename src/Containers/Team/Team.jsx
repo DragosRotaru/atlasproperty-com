@@ -19,6 +19,7 @@ type Props = {
       id: string,
       name: string,
       title: string,
+      email: string,
       priority: number,
       portrait: {
         handle: string,
@@ -55,10 +56,12 @@ class Team extends Component<Props> {
         return 0;
       });
       temp.forEach((teamMember, i) => {
+        const email = ['mailto:', teamMember.email].join('');
         const tile = (
           <Tile
             { ...tileOptions }
             key={ teamMember.id }
+            href={ email }
             mediaURL={ this.mediaURLAccessor(teamMember) }
             mimeType={ this.mimeTypeAccessor(teamMember) }
             active={ i === inViewportIndex }

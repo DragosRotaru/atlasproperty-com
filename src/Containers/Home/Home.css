@@ -7,10 +7,12 @@
   left: 50%;
   transform: translateX(-50%);
   height: 200vh;
+  min-height: 100vw;
   width: 200vh;
+  min-width: 100vw;
   margin-top: -100vh;
   border-radius: 200vh;
-  background: colorAccent;
+  background-color: white;
 }
 
 .container {
@@ -20,29 +22,8 @@
   grid-template-rows: 100vh;
   width: 100%;
   height: 100%;
-  background-color: white;
+  background-color: colorAccent;
   overflow: hidden;
-}
-
-.personOne {
-  position: absolute;
-  width: 100px;
-  top: 10%;
-  left: 10%;
-}
-
-.personTwo {
-  position: absolute;
-  width: 100px;
-  top: 40%;
-  left: 40%;
-}
-
-.personThree {
-  position: absolute;
-  width: 100px;
-  top: 70%;
-  left: 70%;
 }
 
 .left,
@@ -57,10 +38,10 @@
 }
 
 .heading {
-  margin-top: 25vh;
+  margin-top: 15vh;
   margin-left: 4vmax;
   font-size: 4vmax;
-  color: white;
+  color: colorAccent;
 }
 
 .list {
@@ -73,13 +54,14 @@
 .list li {
   font-size: 2vmax;
   line-height: 1.7;
-  color: white;
+  color: colorAccent;
 }
 
 .button {
   margin-top: 5vh;
   margin-left: 4vmax;
-  font-size: 18px;
+  font-size: 3vh;
+  min-height: 5vh;
   text-transform: capitalize;
   background-color: white !important;
   color: colorAccent !important;

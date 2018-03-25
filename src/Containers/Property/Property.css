@@ -10,6 +10,22 @@
   padding-bottom: 5vh;
 }
 
+.cta {
+  position: fixed;
+  right: 0;
+  top: 40vh;
+  text-transform: capitalize;
+  font-size: 25px;
+  line-height: 1.5;
+  text-align: right;
+  background-color: red !important;
+  height: 100px;
+}
+
+.nestedCta {
+  top: 25vh;
+}
+
 .content,
 .media {
   max-width: 40%;

@@ -173,13 +173,6 @@ class Property extends Component {
               onClick={ this.openLightBox }
             >View Photos
             </Button>
-            <Button
-              raised
-              theme="secondary-bg text-primary-on-secondary"
-              className={ Style.button }
-              onClick={ () => form.open() }
-            >Book Tour
-            </Button>
           </div>
         </div>
         <div className={ Style.content }>
@@ -202,6 +195,14 @@ class Property extends Component {
         onClickNext={ this.lightBoxNextImage }
         backdropClosesModal
       />,
+      <Button
+        key="cta"
+        raised
+        theme="secondary-bg text-primary-on-secondary"
+        className={ [Style.cta, this.props.nested ? Style.nestedCta : ''].join(' ') }
+        onClick={ () => form.open() }
+      >Book<br />Tour
+      </Button>,
     ]);
   }
 }

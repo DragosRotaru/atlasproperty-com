@@ -16,9 +16,11 @@ class Solutions extends Component {
       </div>,
       <div key="background" className={ Style.blueBackground }>
         <div className={ Style.whiteForeground }>
+          <div className={ Style.title }>
+            <h1>What We Do</h1>
+          </div>
           <div className={ Style.content }>
             <div>
-              <h1>What We Do</h1>
               <p>As a full-service residential and commercial property management company,
                 Atlas Property Group understands the importance of maximizing the performance
                 of your real estate investment.

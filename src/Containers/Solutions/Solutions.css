@@ -35,6 +35,12 @@
   box-shadow: 0 -5px 10px 5px rgba(20, 20, 20, 0.4);
 }
 
+.title {
+  transform: skewY(11.25deg);
+  padding-top: 25vh;
+  padding-left: 5vw;
+}
+
 .content {
   width: 100%;
   transform: skewY(11.25deg);
@@ -42,7 +48,6 @@
   grid-template-columns: repeat(auto-fit, 50vw);
   grid-auto-rows: auto;
   justify-content: center;
-  padding-top: 20vh;
 }
 
 .content div {
@@ -59,8 +64,8 @@
 }
 
 .graphics img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 80%;
+  max-height: 80%;
 }
 
 .content h1 {

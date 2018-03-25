@@ -23,7 +23,7 @@ class Tenants extends Component {
             <Typist
               cursor={ { show: false } }
               onTypingDone={ () => this.setState({ headingTyped: true }) }
-            ><h1>Welcome to Atlas <span role="img" aria-label="smiley">😃</span></h1><br />
+            ><h1>Welcome to Atlas</h1><br />
             </Typist>
             <br />
           </div>
@@ -41,7 +41,7 @@ class Tenants extends Component {
               <p>
                 Below you will find relevant information and links.
                 Our team is working hard to provide our tenants with the best possible
-                experience – If something isn't working, please email us at info@atlasproperty.com.
+                experience – If something isn't working, please email us at administrator@atlasproperty.com.
               </p><br />
               <h2>Important Info</h2><br />
                 <ul>
@@ -53,7 +53,8 @@ class Tenants extends Component {
               <h2>Links</h2>
               <br />
               <div className={ Style.buttonList }>
-                <a href="http://help.atlasproperty.com/" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>FAQ</Button></a>
+                <a href="https://help.atlasproperty.com/" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>FAQ</Button></a>
+                <a href="https://media.graphcms.com/YSyGzmRyTU6vNUI4AwOf" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Sublet Form</Button></a>
                 <a href="https://atlaspropertygroup.typeform.com/to/Gqtv2c" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Rent Receipt</Button></a>
                 <a href="https://atlaspropertygroup.typeform.com/to/wOt21e" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Maintenance</Button></a>
                 <a href="https://atlaspropertygroup.typeform.com/to/htMAE0" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Staying/Leaving</Button></a>
