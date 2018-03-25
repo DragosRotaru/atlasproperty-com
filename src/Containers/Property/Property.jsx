@@ -8,6 +8,7 @@ import Datum from '../../Modules/Datum/Datum';
 import Style from './Property.css';
 import dataQuery from './Property.gql';
 import Loading from '../../Modules/Loading/Loading';
+import MapDataView from '../../Modules/DataView/MapDataView/MapDataView';
 
 const originalURL = 'https://media.graphcms.com/resize=w:1200/compress/';
 
@@ -157,7 +158,17 @@ class Property extends Component {
         });
       });
     }
+    console.log(property);
     return ([
+      <div
+        key="map"
+        className={ [Style.map, this.props.nested ? Style.nestedMap : ''].join(' ') }
+      >
+        <MapDataView
+          center={ property.location }
+          data={ [property] }
+        />
+      </div>,
       <div key="container" className={ [Style.container, this.props.className].join(' ') } >
         <div className={ Style.media }>
           <img

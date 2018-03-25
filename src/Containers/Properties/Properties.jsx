@@ -85,7 +85,7 @@ class Properties extends Component {
             { ...summaryOptions }
             className={ Style.summary }
             title={ property.address }
-            description={ [beds, ' rooms, ', rent, ' per room'].join('') }
+            description={ [beds, ' rooms • ', rent, ' per room'].join('') }
           />
           </Tile>
         );
@@ -124,6 +124,12 @@ class Properties extends Component {
     const dataView = ([
       <div className={ Style.map }>
         <MapDataView
+          center={
+            {
+              lat: 43.465267,
+              lng: -80.522608,
+            }
+          }
           data={ this.props.data.allProperties }
           onClick={ this.mapsClickHandler }
           onClose={ this.mapsCloseHandler }

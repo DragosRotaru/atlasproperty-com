@@ -4,10 +4,20 @@
 @value colorAccent, colorTextLight from Variables;
 
 .container {
-  width: 100vw;
-  margin-top: 124px;
+  width: 100%;
   display: inline-flex;
   padding-bottom: 5vh;
+  padding-top: 80px;
+}
+
+.map {
+  width: 100%;
+  height: 45vh;
+  margin-bottom: -10px;
+}
+
+.nestedMap {
+  display: none;
 }
 
 .cta {
@@ -23,7 +33,7 @@
 }
 
 .nestedCta {
-  top: 25vh;
+  top: 20vh;
 }
 
 .content,

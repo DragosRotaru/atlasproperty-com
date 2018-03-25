@@ -11,16 +11,11 @@ const MapDataView = compose(
     googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAXELzXBjvUGeVEAGXO---IuQIpoAoi16Y&v=3.exp&libraries=geometry,drawing,places',
     loadingElement: <Loading />,
     containerElement: <div style={ {
-      backgroundColor: 'black',
-      height: '110%',
+      height: '100%',
       width: '100%',
     } }
     />,
     mapElement: <div style={ { height: '100%' } } />,
-    center: {
-      lat: 43.465267,
-      lng: -80.522608,
-    },
   }),
   withScriptjs,
   withGoogleMap,
