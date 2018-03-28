@@ -1,0 +1,9 @@
+{
+  "name": "Atlas Property Group",
+  "short_name": "Atas Property",
+  "description": " Waterloo Region's premiere property management group. Our properties range from multi-unit houses to large scale residences and everything in between!",
+  "lang": "en-CA",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#5B8ADA"
+}

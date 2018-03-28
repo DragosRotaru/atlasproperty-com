@@ -1,17 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <!-- Meta-->
-    <title><%= process.env.APP_NAME %></title>
+    <title>Atlas Property Group</title>
+    <meta name="description" content=" Waterloo Region's premiere property management group. Our properties range from multi-unit houses to large scale residences and everything in between!"/>
+    <meta name="keywords" content="Rentals Apartments Houses Property Management Living Housing Student"/>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link rel="manifest" href="/manifest.json">
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Atas Property">
+    <meta name="apple-mobile-web-app-title" content="Atas Property">
+    <meta name="theme-color" content="#5B8ADA">
+    <meta name="msapplication-navbutton-color" content="#5B8ADA">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-starturl" content="/">
+
+    <!-- Open Graph and Twitter -->
+    <meta property="og:url" content="https://atlasproperty.com" />
+    <meta property="og:title" content="Atlas Property Group" />
+    <meta property="og:description" content="Waterloo Region's premiere property management group. Our properties range from multi-unit houses to large scale residences and everything in between!" />
+    <meta property="og:site_name" content="Example" />
+    <meta property="og:image" content="https://atlasproperty.com/logo.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content=" Waterloo Region's premiere property management group. Our properties range from multi-unit houses to large scale residences and everything in between!">
+    <meta name="twitter:site" content="@atlas_property">
+
+
     <!-- Stylesheets-->
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css" rel="stylesheet">
+    <link def href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId            : '155626678452103',
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v2.12'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
     <div id="mount"></div>
+    <div class="fb-customerchat"
+     page_id="Home"
+     theme_color="#5B8ADA"
+    </div>
   </body>
 </html>

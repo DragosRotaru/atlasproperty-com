@@ -74,7 +74,7 @@
   margin-left: 0;
 }
 
-@media screen and (width < 800px) {
+@media screen and (width < 860px) {
   .container {
     grid-template-columns: 100vw;
     grid-template-rows: 50vh 50vh;
