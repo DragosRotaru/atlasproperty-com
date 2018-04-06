@@ -1,4 +1,4 @@
-// flow-typed signature: 87b9eb11edea7e08e69058f1c1c15991
+// flow-typed signature: 34cbaaefbd581a21035c440d64915633
 // flow-typed version: <<STUB>>/react-style-proptype_v^3.0.0/flow_v0.68.0
 
 /**
@@ -46,6 +46,10 @@ declare module 'react-style-proptype/src/Style.flow' {
   declare module.exports: any;
 }
 
+declare module 'react-style-proptype/src/Style' {
+  declare module.exports: any;
+}
+
 // Filename aliases
 declare module 'react-style-proptype/scripts/genFlow.js' {
   declare module.exports: $Exports<'react-style-proptype/scripts/genFlow'>;
@@ -64,4 +68,7 @@ declare module 'react-style-proptype/src/index.js' {
 }
 declare module 'react-style-proptype/src/Style.flow.js' {
   declare module.exports: $Exports<'react-style-proptype/src/Style.flow'>;
+}
+declare module 'react-style-proptype/src/Style.js' {
+  declare module.exports: $Exports<'react-style-proptype/src/Style'>;
 }

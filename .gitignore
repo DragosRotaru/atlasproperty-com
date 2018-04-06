@@ -1,6 +1,9 @@
 # MacOS
 .DS_Store
 
+# Flow Declaration Files
+flow-typed/
+
 # Build
 build/
 

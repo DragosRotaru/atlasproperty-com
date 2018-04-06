@@ -10,7 +10,7 @@ const SummaryOptions = {
 class Summary extends Component {
   render() {
     return (
-      <div className={ [Style.content, Style[this.props.underline], Style[this.props.align], this.props.className].join(' ') } >
+      <div className={ [Style.content, Style[this.props.align], this.props.className].join(' ') } >
         <h2>{ this.props.title }</h2><br />
         { this.props.title.length < 30 ? <h4>{ this.props.description }</h4> : '' }
         <br />
@@ -23,7 +23,6 @@ Summary.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   keywords: PropTypes.arrayOf(PropTypes.string),
-  underline: PropTypes.oneOf(SummaryOptions.underline),
   align: PropTypes.oneOf(SummaryOptions.align),
   className: PropTypes.string,
 };
@@ -31,7 +30,6 @@ Summary.defaultProps = {
   title: '',
   description: '',
   keywords: [],
-  underline: 'no-underline',
   align: 'center',
   className: '',
 };

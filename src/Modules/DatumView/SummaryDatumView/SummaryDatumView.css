@@ -1,20 +1,9 @@
-@value Variables: '../../../Variables.css';
-@value colorAccent from Variables;
-
 .content {
   position: absolute;
   z-index: 1;
   margin: 0 20%;
   top: 50%;
   transform: translateY(-50%);
-}
-
-/* Underline Classes */
-
-.underline h2 {
-  border-bottom: 0.2vmax solid colorAccent;
-  line-height: 1.3;
-  width: auto;
 }
 
 /* Align Classes */

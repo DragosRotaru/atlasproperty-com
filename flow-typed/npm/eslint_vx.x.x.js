@@ -1,4 +1,4 @@
-// flow-typed signature: 504fa38dcb275652b172657e2ca5f9d8
+// flow-typed signature: fa3cca1017d7a5fcb5d3e569945693c3
 // flow-typed version: <<STUB>>/eslint_v^4.15.0/flow_v0.68.0
 
 /**
@@ -31,10 +31,6 @@ declare module 'eslint/conf/config-schema' {
 }
 
 declare module 'eslint/conf/default-cli-options' {
-  declare module.exports: any;
-}
-
-declare module 'eslint/conf/default-config-options' {
   declare module.exports: any;
 }
 
@@ -1395,9 +1391,6 @@ declare module 'eslint/conf/config-schema.js' {
 }
 declare module 'eslint/conf/default-cli-options.js' {
   declare module.exports: $Exports<'eslint/conf/default-cli-options'>;
-}
-declare module 'eslint/conf/default-config-options.js' {
-  declare module.exports: $Exports<'eslint/conf/default-config-options'>;
 }
 declare module 'eslint/conf/environments.js' {
   declare module.exports: $Exports<'eslint/conf/environments'>;

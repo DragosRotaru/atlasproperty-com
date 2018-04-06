@@ -1,4 +1,8 @@
 /* eslint-disable global-require */
+const fs = require('fs');
+
+// temporary fix until DoIUse adheres to browserslist standard
+const browserslistrc = fs.readFileSync('.browserslistrc').toString().split('\n');
 
 const config = {
   plugins: [
@@ -6,20 +10,11 @@ const config = {
     require('postcss-modules-values'),
     require('postcss-font-magician'),
     require('doiuse')({
-      browsers: [
-        '>10%',
-      ],
-      ignore: [], // features to ignore
-      ignoreFiles: [], // file globs to match against original source file path, to ignore
+      browsers: browserslistrc,
     }),
     require('postcss-reporter')({
       clearAllMessages: true,
     }),
-    /* require('cssnano')({
-      preset: ['default', {
-        autoprefixer: false,
-      }],
-    }), */
   ],
 };
 /* eslint-enable global-require */
