@@ -8,7 +8,7 @@ import defaultStyle from './MapStyle.json';
 
 const Map = compose(
   withProps({
-    googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAXELzXBjvUGeVEAGXO---IuQIpoAoi16Y&v=3.exp&libraries=geometry,drawing,places',
+    googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDxE_S9SAgyzDOOyWb24wbLDR4scnaUu7U&v=3.exp&libraries=geometry,drawing,places',
     loadingElement: <Loading />,
     containerElement: <div style={ {
       backgroundColor: 'black',

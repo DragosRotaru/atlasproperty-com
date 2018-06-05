@@ -16,10 +16,6 @@
   margin-bottom: -10px;
 }
 
-.nestedMap {
-  display: none;
-}
-
 .cta {
   position: fixed;
   right: 0;
@@ -28,12 +24,8 @@
   font-size: 25px;
   line-height: 1.5;
   text-align: right;
-  background-color: red !important;
+  background-color: #e43 !important;
   height: 100px;
-}
-
-.nestedCta {
-  top: 20vh;
 }
 
 .content,
@@ -56,7 +48,8 @@
 .button {
   text-transform: capitalize;
   background-color: colorAccent !important;
-  min-width: 117px !important;
+  min-width: 120px !important;
+  height: 50px;
 }
 
 .buttons {
@@ -98,18 +91,24 @@
   }
 
   .media img {
-    width: 90vw;
-    height: 90vw;
+    width: 90%;
+    height: 90%;
     padding-top: 20px;
   }
 
-  .content,
+  .content {
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 20px;
+  }
+
   .media {
     width: 100%;
     max-width: none;
+    text-align: center;
     margin: 0;
     padding: 0;
-    text-align: center;
   }
 
   .content {
@@ -118,6 +117,7 @@
 
   .description {
     font-size: 1.6vmax;
-    padding: 5vh 5vw;
+    padding: 0;
+    width: 90%;
   }
 }

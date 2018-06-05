@@ -11,6 +11,14 @@
   width: 0;
 }
 
+:root {
+  --mdc-theme-background: white;
+  --mdc-theme-primary: #4B4D4F;
+  --mdc-theme-secondary: #5B8ADA;
+  --mdc-theme-primary-bg: #4B4D4F;
+  --mdc-theme-secondary-bg: #5B8ADA;
+}
+
 a,
 body,
 div,

@@ -3,20 +3,20 @@ import { Link } from 'react-router-dom';
 import { Button } from 'rmwc/Button';
 import Style from './Home.css';
 
+import FeaturedProperties from '../FeaturedProperties/FeaturedProperties';
+
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   componentDidMount() {
-    window.analytics.page('Home');
   }
   render() {
     return (
       <div className={ Style.container }>
-        <div className={ Style.background } />
-        <div className={ Style.left }>
-          <Link to="/properties">
+        <div className={ Style.content }>
+          <div className={ Style.left }>
             <h1 className={ Style.heading }>
               I'm looking for a smart <br />place to rent.
             </h1>
@@ -25,16 +25,16 @@ class Home extends Component {
               <li>Professional and personable service.</li>
               <li>Personal hospitality plans.</li>
             </ul>
-            <Button
-              raised
-              theme="secondary-bg text-primary-on-secondary"
-              className={ Style.button }
-            >Atlas Helps You Find It.
-            </Button>
-          </Link>
-        </div>
-        <div className={ Style.right }>
-          <Link to="solutions">
+            <Link to="/properties">
+              <Button
+                raised
+                theme="secondary-bg text-primary-on-secondary"
+                className={ Style.button }
+              >Atlas Helps You Find It.
+              </Button>
+            </Link>
+          </div>
+          <div className={ Style.right }>
             <h1 className={ Style.heading }>
               I'm looking for sound managment.
             </h1>
@@ -43,13 +43,21 @@ class Home extends Component {
               <li>Tenant satisfaction occupancy model.</li>
               <li>Proactive servicing and maintenance.</li>
             </ul>
-            <Button
-              raised
-              theme="secondary-bg text-primary-on-secondary"
-              className={ Style.button }
-            >Atlas Helps You Manage It.
-            </Button>
-          </Link>
+            <Link to="solutions">
+              <Button
+                raised
+                theme="secondary-bg text-primary-on-secondary"
+                className={ Style.button }
+              >Atlas Helps You Manage It.
+              </Button>
+            </Link>
+          </div>
+        </div>
+        <div className={ Style.featured }>
+          <h1 className={ Style.heading }>
+            Featured Properties
+          </h1>
+          <FeaturedProperties />
         </div>
       </div>
     );

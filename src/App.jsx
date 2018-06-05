@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router';
 import { ApolloProvider } from 'react-apollo';
 import createBrowserHistory from 'history/createBrowserHistory';
-import { initializeAnalytics } from './analytics';
 import Client from './ConfigureApolloClient';
 import Style from './App.css';
 
@@ -15,9 +14,6 @@ import Property from './Containers/Property/Property';
 import Contact from './Containers/Contact/Contact';
 import Home from './Containers/Home/Home';
 import Header from './Containers/Header/Header';
-
-// Initialize Segment analytics.js
-initializeAnalytics();
 
 const history = createBrowserHistory();
 
@@ -31,7 +27,7 @@ class App extends Component<{}> {
             <Switch key="switch" >
               <Route path="/solutions" exact component={ Solutions } />
               <Route path="/properties" exact component={ Properties } />
-              <Route path="/properties/:id" component={ Property } />
+              <Route path="/properties/:id/:unitId" component={ Property } />
               <Route path="/contact" component={ Contact } />
               <Route path="/tenants" exact component={ Tenants } />
               <Route path="/" component={ Home } /> { /* must be last */ }

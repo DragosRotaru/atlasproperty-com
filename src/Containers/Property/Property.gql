@@ -3,23 +3,29 @@ query getProperty($id: ID) {
     id
     location
     address
+    city
     type
     features
+    numberOfFloors
     media {
       handle
       isFeatured
+      priority
     }
     units {
+      id
+      price
       bedrooms
       bathrooms
-      price
-      availabilityDate
-      utilitiesIncluded
-      features
       description
+      features
+      utilitiesIncluded
+      availabilityDate
+      virtualTourURL
       media {
         handle
         isFeatured
+        priority
       }
     }
   }

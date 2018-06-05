@@ -46,7 +46,7 @@ class Header extends Component {
       </NavLink>,
       <NavLink key="/tenants" to="/tenants" activeClassName={ Style.activeNavLink }>
         <ListItem >
-          <Button raised theme="secondary-bg text-primary-on-secondary" className={ Style.loginButton }>For Tenants</Button>
+          <ListItemText className={ Style.listItemText }>For Tenants</ListItemText>
         </ListItem>
       </NavLink>,
     ]);

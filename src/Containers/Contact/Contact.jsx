@@ -9,7 +9,6 @@ import linkedinIcon from './linkedIn.svg';
 
 class Contact extends Component {
   componentDidMount() {
-    window.analytics.page('Contact');
   }
   render() {
     return (

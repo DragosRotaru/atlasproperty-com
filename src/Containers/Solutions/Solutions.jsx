@@ -7,7 +7,6 @@ import Style from './Solutions.css';
 
 class Solutions extends Component {
   componentDidMount() {
-    window.analytics.page('Owners');
   }
   render() {
     return ([

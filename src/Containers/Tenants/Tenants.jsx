@@ -13,7 +13,6 @@ class Tenants extends Component {
     };
   }
   componentDidMount() {
-    window.analytics.page('Tenants');
   }
   render() {
     return ([
@@ -53,7 +52,6 @@ class Tenants extends Component {
               <h2>Links</h2>
               <br />
               <div className={ Style.buttonList }>
-                <a href="https://help.atlasproperty.com/" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>FAQ</Button></a>
                 <a href="https://media.graphcms.com/YSyGzmRyTU6vNUI4AwOf" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Sublet Form</Button></a>
                 <a href="https://atlaspropertygroup.typeform.com/to/Gqtv2c" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Rent Receipt</Button></a>
                 <a href="https://atlaspropertygroup.typeform.com/to/wOt21e" target="_blank" rel="noopener noreferrer"><Button className={ Style.button }>Maintenance</Button></a>
