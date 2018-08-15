@@ -4,7 +4,8 @@
     "react",
     "flow"
   ],
+  "retainLines": true,
   "plugins": [
     "transform-object-rest-spread"
-  ],
+  ]
 }

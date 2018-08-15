@@ -1,0 +1,40 @@
+query getProperty($id: ID) {
+  Property (id: $id) {
+    id
+    location
+    address
+    city
+    zoning
+    numberOfFloors
+    features
+    distanceToLaurierU
+    distanceToWaterlooU
+    distanceToConestogaCollege
+    distanceToUptownWaterloo
+    distanceToConestogaMall
+    media {
+      handle
+      isFeatured
+      priority
+    }
+    units {
+      id
+      type
+      squareFeet
+      bedrooms
+      bathrooms
+      price
+      availabilityDate
+      utilitiesIncluded
+      description
+      features
+      virtualTourURL
+      prioritizePropertyImages
+      media {
+        handle
+        isFeatured
+        priority
+      }
+    }
+  }
+}

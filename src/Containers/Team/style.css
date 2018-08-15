@@ -1,0 +1,94 @@
+@import '../../Variables.css';
+
+@value Variables: '../../Variables.css';
+@value colorText, colorAccent from Variables;
+
+.container {
+  margin: 0;
+  margin-top: 64px;
+  padding: 0;
+  padding-top: 20px;
+  padding-bottom: 15vh;
+  height: 100%;
+  width: 100vw;
+}
+
+.container h1 {
+  text-align: center;
+  padding: 40px;
+}
+
+
+.grid {
+  grid-gap: 2vw;
+  justify-content: center;
+}
+
+.summary {
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  min-width: 30vw;
+  padding: 3vh 3vw;
+  right: 0;
+}
+
+.summary h2,
+.summary h4 {
+  color: colorText;
+}
+
+.summary p {
+  color: colorAccent;
+}
+
+@media screen and (width <= 899px) {
+  .grid {
+    grid-template-columns: 90vw;
+    grid-template-rows: repeat(auto-fit, 90vw);
+    grid-auto-rows: 90vw;
+    grid-auto-columns: 90vw;
+  }
+  .summary {
+    padding: 5vh 5vw;
+  }
+  .summary h2 {
+    font-size: 6vw;
+  }
+
+  .summary h4 {
+    font-size: 3vw;
+  }
+
+  .summary p {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (width >= 900px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, 44vw);
+    grid-template-rows: repeat(auto-fit, 44vw);
+    grid-auto-rows: 44vw;
+    grid-auto-columns: 44vw;
+  }
+  .summary h2 {
+    font-size: 3vw;
+  }
+
+  .summary h4 {
+    font-size: 1.5vw;
+  }
+
+  .summary p {
+    font-size: 1vw;
+  }
+}
+
+@media screen and (width >= 1200px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, 28.66vw);
+    grid-template-rows: repeat(auto-fit, 28.66vw);
+    grid-auto-rows: 28.66vw;
+    grid-auto-columns: 28.66vw;
+  }
+}

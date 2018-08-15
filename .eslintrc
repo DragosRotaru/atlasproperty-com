@@ -3,14 +3,15 @@
   "parser": "babel-eslint",
   "rules": {
     "compat/compat": "error",
-    "react/jsx-curly-spacing": [2, "always"],
+    "react/jsx-curly-spacing": [2, "never"],
     "react/prefer-stateless-function": [0],
     "no-underscore-dangle": [0]
   },
   "plugins": [
     "babel",
     "react",
-    "compat"
+    "compat",
+    "flow"
   ],
   "env": {
     "node": true,
