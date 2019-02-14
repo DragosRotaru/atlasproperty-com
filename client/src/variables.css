@@ -1,0 +1,13 @@
+/* COLORS */
+@value colorBackground: rgb(238, 238, 238);
+@value colorBackgroundSecondary: #f6f9fc;
+@value colorBackgroundThird: rgb(33, 33, 33);
+@value colorText: #4B4D4F;
+@value colorTextSecondary: rgb(255, 255, 255);
+@value colorTextLight: rgb(158, 158, 158);
+@value colorPrimary: #4B4D4F;
+@value colorPrimaryDark: rgb(97, 97, 97);
+@value colorAccent: #5B8ADA;
+@value colorAccentDark: rgb(1, 87, 155);
+@value colorPrimaryContrast: rgb(255, 255, 255);
+@value colorAccentContrast: rgb(255, 255, 255);

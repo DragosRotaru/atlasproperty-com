@@ -1,0 +1,51 @@
+@value colorPrimary, colorAccent from '../../variables.css';
+
+.container {
+  z-index: 1;
+}
+
+.bar {
+  background-color: rgba(255, 255, 255);
+  height: 64px;
+}
+
+.logo {
+  margin-left: 20px;
+  width: auto;
+  height: 44px;
+}
+
+.menu {
+  display: inline-flex;
+}
+
+.menu a {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  user-select: none;
+  text-decoration: none;
+  outline: none;
+}
+
+.item {
+  color: colorPrimary;
+}
+
+.activeNavLink .item {
+  color: colorAccent;
+}
+
+.button {
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 1099px) {
+  .menu a {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .button {
+    display: none;
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Dragos Rotaru",
+  "license": "UNLICENSED",
+  "private": true,
+  "homepage": "https://github.com/rotaru-co/service-atlasproperty-com#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rotaru-co/service-atlasproperty-com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rotaru-co/service-atlasproperty-com/issues"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "lint": "npx eslint src --format codeframe",
+    "lint:fix": "npx eslint src --fix",
+    "flow": "npx flow",
+    "flow:check": "npx flow check",
+    "flow:dependencies": "npx flow-typed install",
+    "flow:start": "npx flow start",
+    "flow:stop": "npx flow stop",
+    "flow:status": "npx flow status",
+    "flow:coverage": "npx flow coverage",
+    "test": "npx NODE_TLS_REJECT_UNAUTHORIZED=0 jest",
+    "audit": "npm audit",
+    "audit:fix": "npm audit fix",
+    "build": "npx babel src -d bin",
+    "start": "npm run build && node bin/index.js",
+    "docs": "npx documentation build src/** -f html -o docs",
+    "docs:serve": "npx documentation serve --watch src/**"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.3",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "documentation": "^9.1.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "express-winston": "^3.0.1",
+    "helmet": "^3.15.0",
+    "joi": "^14.3.0",
+    "moment": "^2.23.0",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "eslint": "^5.11.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-jest": "^22.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-security": "^1.4.0",
+    "flow-bin": "^0.89.0",
+    "flow-typed": "^2.5.1",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-flow"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
+  "jest": {
+    "rootDir": "./src",
+    "testEnvironment": "node",
+    "coverageDirectory": "coverage"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true,
+      "browser": false,
+      "jest/globals": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:flowtype/recommended",
+      "plugin:security/recommended",
+      "plugin:prettier/recommended",
+      "prettier/flowtype"
+    ],
+    "plugins": [
+      "flowtype",
+      "security",
+      "jest"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "flowtype/no-types-missing-file-annotation": 0,
+      "no-unused-vars": 0,
+      "security/detect-object-injection": 0
+    }
+  },
+  "prettier": {
+    "trailingComma": "es5"
+  }
+}

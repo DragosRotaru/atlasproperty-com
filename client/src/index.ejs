@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta-->
+    <title>Atlas Property Group</title>
+    <meta
+      name="description"
+      content=" Waterloo Region's premiere property management group. Our properties range from multi-unit houses to large scale residences and everything in between!"
+    />
+    <meta
+      name="keywords"
+      content="Rentals Apartments Houses Property Management Living Housing Student"
+    />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Atas Property" />
+    <meta name="apple-mobile-web-app-title" content="Atas Property" />
+    <meta name="theme-color" content="#5B8ADA" />
+    <meta name="msapplication-navbutton-color" content="#5B8ADA" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="msapplication-starturl" content="/" />
+
+    <!-- Open Graph and Twitter -->
+    <meta property="og:url" content="https://atlasproperty.com" />
+    <meta property="og:title" content="Atlas Property Group" />
+    <meta
+      property="og:description"
+      content="Waterloo Region's premiere property management group. Our properties range from multi-unit houses to large scale residences and everything in between!"
+    />
+    <meta property="og:site_name" content="Example" />
+    <meta property="og:image" content="https://atlasproperty.com/logo.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      name="twitter:card"
+      content="Waterloo Region's premiere property management group. Our properties range from multi-unit houses to large scale residences and everything in between!"
+    />
+    <meta name="twitter:site" content="@atlas_property" />
+
+    <!-- Stylesheets-->
+    <link
+      def
+      href="https://unpkg.com/material-components-web@0.44.0/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/react-day-picker/lib/style.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --mdc-theme-background: white;
+        --mdc-theme-primary: #4b4d4f;
+        --mdc-theme-secondary: #5b8ada;
+        --mdc-theme-primary-bg: #4b4d4f;
+        --mdc-theme-secondary-bg: #5b8ada;
+      }
+      .cta-appear {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .cta-appear-active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TPV3PD6");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TPV3PD6"
+        height="0"
+        width="0"
+        style="display:none; visibility:hidden;"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="root"></div>
+  </body>
+</html>

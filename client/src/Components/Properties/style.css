@@ -1,0 +1,108 @@
+@value colorText, colorAccent from '../../variables.css';
+
+.container {
+  margin: 0;
+  padding: 0;
+  padding-top: 64px;
+  content: center;
+}
+
+.tab i {
+  color: white !important;
+}
+
+.map {
+  height: 85vh;
+  overflow: hidden;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gridItem {
+  max-width: 90vw;
+  width: 350px;
+  margin: 1em;
+}
+
+.gridItem h2 {
+  font-size: 20px;
+}
+
+.gridItem h3 {
+  font-size: 20px;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 300px;
+}
+
+.drawerGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: 64px;
+  overflow-y: scroll;
+}
+
+.drawerGrid .gridItem {
+  width: auto;
+}
+
+.cornerRibbon {
+  width: 200px;
+  background: #e43;
+  top: 25px;
+  left: -50px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+  transform: rotate(-45deg);
+  position: absolute;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.filterDrawer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 64px;
+  overflow-y: scroll;
+}
+
+.filterDrawer h3 {
+  font-size: 16px;
+}
+
+.input {
+  margin: 20px 0;
+}
+
+.scrollIndicator {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1;
+  font-size: 50px;
+  color: colorAccent;
+}
+
+.dayPicker {
+  width: 100%;
+}
+
+.menuItem {
+  width: 135px;
+}

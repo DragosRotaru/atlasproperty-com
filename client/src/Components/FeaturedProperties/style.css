@@ -1,0 +1,45 @@
+@value colorText, colorAccent from '../../variables.css';
+
+.container {
+  margin: 0;
+  padding: 0;
+  content: center;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gridItem {
+  max-width: 90vw;
+  width: 400px;
+  margin: 1em;
+}
+
+.gridItem h2 {
+  font-size: 20px;
+}
+
+.gridItem h3 {
+  font-size: 20px;
+}
+
+.cornerRibbon {
+  width: 200px;
+  background: #e43;
+  top: 25px;
+  left: -50px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+  transform: rotate(-45deg);
+  position: absolute;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  top: 25px;
+  left: -50px;
+  transform: rotate(-45deg);
+  background: #e43;
+  z-index: 1000;
+}

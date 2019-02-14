@@ -1,0 +1,35 @@
+{
+  allProperties {
+    id
+    location
+    address
+    city
+    zoning
+    features
+    priority
+    isFeatured
+    imageBanner
+    media {
+      handle
+      isFeatured
+      priority
+    }
+    units {
+      id
+      type
+      price
+      bedrooms
+      bathrooms
+      description
+      features
+      utilitiesIncluded
+      availabilityDate
+      prioritizePropertyImages
+      media {
+        handle
+        isFeatured
+        priority
+      }
+    }
+  }
+}
