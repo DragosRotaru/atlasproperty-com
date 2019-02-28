@@ -1,0 +1,26 @@
+.container {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.card {
+  display: flex;
+  padding: 20px;
+  min-height: 400px;
+  height: 50vh;
+  max-height: 600px;
+  min-width: 300px;
+  width: 30vw;
+  max-width: 400px;
+  flex-flow: column;
+  justify-content: space-evenly;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-flow: row-reverse;
+}

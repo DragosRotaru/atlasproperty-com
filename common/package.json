@@ -1,5 +1,5 @@
 {
-  "name": "api-service-atlasproperty-com",
+  "name": "common-service-atlasproperty-com",
   "version": "1.0.0",
   "description": "",
   "author": "Dragos Rotaru",
@@ -33,25 +33,6 @@
     "start": "npm run build && node bin/index.js",
     "docs": "npx documentation build src/** -f html -o docs",
     "docs:serve": "npx documentation serve --watch src/**"
-  },
-  "dependencies": {
-    "@sendgrid/mail": "^6.3.1",
-    "babel-polyfill": "^6.26.0",
-    "body-parser": "^1.18.3",
-    "connect-ensure-login": "^0.1.1",
-    "cookie-parser": "^1.4.3",
-    "cors": "^2.8.5",
-    "debug": "^4.1.1",
-    "documentation": "^9.1.1",
-    "express": "^4.16.4",
-    "express-session": "^1.15.6",
-    "express-winston": "^3.0.1",
-    "helmet": "^3.15.0",
-    "joi": "^14.3.0",
-    "moment": "^2.23.0",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "puppeteer": "^1.12.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

@@ -41,7 +41,7 @@ module.exports = merge(common, {
       sourceMap: true,
     }),
     new FaviconsWebpackPlugin({
-      logo: "./src/Static/favicon.png",
+      logo: "./src/static/favicon.png",
       prefix: "icons-[hash]/",
       emitStats: false,
       statsFilename: "iconstats-[hash].json",

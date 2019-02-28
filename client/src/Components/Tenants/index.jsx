@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Typist from "react-typist";
 import { Button } from "@rmwc/button";
+import { Link } from "react-router-dom";
 import Style from "./style.css";
 
 export class Tenants extends Component {
@@ -73,13 +74,9 @@ export class Tenants extends Component {
                 >
                   <Button className={Style.button}>Sublet Form</Button>
                 </a>
-                <a
-                  href="https://atlaspropertygroup.typeform.com/to/Gqtv2c"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link to="/rent-receipt-request">
                   <Button className={Style.button}>Rent Receipt</Button>
-                </a>
+                </Link>
                 <a
                   href="https://atlaspropertygroup.typeform.com/to/wOt21e"
                   target="_blank"

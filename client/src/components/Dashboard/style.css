@@ -1,0 +1,10 @@
+.container {
+  display: grid;
+  grid-gap: 20px;
+  padding-top: 100px;
+  min-width: 700px;
+  width: 100vw;
+  justify-content: center;
+  grid-template-rows: 80vh;
+  grid-template-columns: repeat(3, 30vw);
+}

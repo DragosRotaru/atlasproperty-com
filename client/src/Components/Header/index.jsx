@@ -5,9 +5,9 @@ import { Drawer, DrawerHeader, DrawerContent } from "@rmwc/drawer";
 import { List, ListItem, ListItemText } from "@rmwc/list";
 import { Elevation } from "@rmwc/elevation";
 import { Button } from "@rmwc/button";
-
+import { AuthService } from "../../services";
 import { AnnouncementBar } from "../AnnouncementBar";
-import logo from "../../Static/Logo.svg";
+import logo from "../../static/Logo.svg";
 import Style from "./style.css";
 
 export class Header extends Component {
@@ -24,6 +24,7 @@ export class Header extends Component {
     };
   }
   render() {
+    const auth = new AuthService();
     const menu = [
       {
         title: "Residential",
@@ -70,15 +71,28 @@ export class Header extends Component {
             </TopAppBarSection>
             <TopAppBarSection alignEnd tag="nav">
               <List className={Style.menu}>
-                {menu.map(item => (
-                  <NavLink
-                    key={item.title}
-                    to={item.to}
-                    activeClassName={Style.activeNavLink}
-                  >
-                    <ListItem className={Style.item}>{item.title}</ListItem>
-                  </NavLink>
-                ))}
+                {auth.isLoggedIn()
+                  ? [
+                      <NavLink key="dashboard" to={"/"}>
+                        <ListItem className={Style.item}>Dashboard</ListItem>
+                      </NavLink>,
+                      <ListItem
+                        key="logout"
+                        className={Style.item}
+                        onClick={auth.logout}
+                      >
+                        Logout
+                      </ListItem>,
+                    ]
+                  : menu.map(item => (
+                      <NavLink
+                        key={item.title}
+                        to={item.to}
+                        activeClassName={Style.activeNavLink}
+                      >
+                        <ListItem className={Style.item}>{item.title}</ListItem>
+                      </NavLink>
+                    ))}
                 <ListItem>
                   <Button
                     raised
