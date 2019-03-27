@@ -1,19 +1,21 @@
 version: "3.7"
 services:
-  api:
-    depends_on:
-      - db
-    ports:
-      - "80:8000"
-    build:
-      context: .
-      dockerfile: ./api/Dockerfile
-    environment:
-      NODE_ENV: development
+  #  api:
+  #    depends_on:
+  #      - db
+  #    ports:
+  #      - "8000:8000"
+  #    build:
+  #      context: .
+  #      dockerfile: ./api/Dockerfile
+  #    environment:
+  #      NODE_ENV: development
   db:
     image: mongo:latest
     environment:
       config: ./db/mongod.yml
+    ports:
+      - "27017:27017"
     volumes:
       - type: bind
         source: ./db

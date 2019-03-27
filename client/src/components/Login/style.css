@@ -1,4 +1,7 @@
+@value colorText, colorAccent from '../../variables.css';
+
 .container {
+  background-color: colorAccent;
   display: grid;
   align-content: center;
   justify-content: center;

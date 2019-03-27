@@ -7,9 +7,9 @@ const SummaryOptions = {
 }; // TODO Replace
 
 export function Summary(props: {
-  title?: string,
+  title: string,
   description?: string,
-  keywords?: Array<string>,
+  keywords: string[],
   align?: string,
   className?: string,
 }) {

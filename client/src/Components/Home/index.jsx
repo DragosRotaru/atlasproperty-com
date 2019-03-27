@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@rmwc/button";
+import { FeaturedProperties } from "../featured-properties";
 import Style from "./style.css";
-
-import { FeaturedProperties } from "../FeaturedProperties";
 
 export class Home extends Component {
   constructor(props) {

@@ -18,8 +18,9 @@ import {
   Home,
   Header,
   RentReceipt,
+  Inquiry,
 } from "./components";
-import { config } from "../../common/src";
+import { config } from "./config";
 
 function App() {
   const auth = new AuthService();
@@ -28,26 +29,54 @@ function App() {
       <BrowserRouter>
         <div className={Style.container}>
           <Switch key="switch">
+            <Redirect
+              from="/login"
+              exact
+              to={`/${config.models.auth.name}/login`}
+            />
+            <Redirect
+              from="/admin"
+              exact
+              to={auth.isLoggedIn() ? "/" : `/${config.models.auth.name}/login`}
+            />
             {auth.isLoggedIn() ? (
               <Fragment>
                 <Header key="header" />
+                <Route
+                  path={`/${config.models.rentReceipts.name}/:id?`}
+                  exact
+                  component={RentReceipt}
+                />
                 <Route path="/" exact component={Dashboard} />
               </Fragment>
             ) : (
               <Fragment>
                 <Header key="header" />
-                <Route path="/login" exact component={Login} />
+                <Route
+                  path={`/${config.models.auth.name}/login`}
+                  exact
+                  component={Login}
+                />
                 <Route path="/properties" exact component={Properties} />
-                <Route path="/properties/:id/:unitId" component={Property} />
+                <Route
+                  path="/properties/:id/:unitId"
+                  exact
+                  component={Property}
+                />
                 <Route path="/management" exact component={Management} />
                 <Route path="/development" exact component={Development} />
                 <Route path="/team" exact component={Team} />
                 <Route path="/contact" exact component={Contact} />
                 <Route path="/tenants" exact component={Tenants} />
                 <Route
-                  path={`${config.models.rentReceipts.name}/:id`}
+                  path={`/${config.models.rentReceipts.name}`}
                   exact
                   component={RentReceipt}
+                />
+                <Route
+                  path={`/${config.models.inquiries.name}`}
+                  exact
+                  component={Inquiry}
                 />
                 <Route path="/" exact component={Home} />
               </Fragment>

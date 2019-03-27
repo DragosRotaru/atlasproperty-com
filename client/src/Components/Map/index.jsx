@@ -7,7 +7,7 @@ import {
   Marker,
 } from "react-google-maps";
 import Color from "color";
-import { Loading } from "../Loading";
+import { Loading } from "../loading";
 import cssVariables from "../../variables.css";
 import defaultStyle from "./mapStyle.json";
 

@@ -1,0 +1,64 @@
+@value colorText, colorAccent from '../../variables.css';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: colorAccent;
+}
+
+.container input {
+  padding: 20px 16px 0 !important;
+}
+
+.card {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  width: 700px;
+  max-height: 80vh;
+  padding: 20px;
+  overflow: scroll;
+}
+
+.section {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-content: space-between;
+  padding: 20px;
+}
+
+.title {
+  padding: 20px;
+}
+
+.title p {
+  padding: 20px;
+  font-size: 14px;
+}
+
+.field {
+  margin: 0 10px;
+}
+
+.textArea {
+  min-height: 200px;
+  margin: 0 10px;
+}
+
+.buttons {
+  padding: 20px;
+  display: flex;
+  flex-flow: row-reverse;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 700px) {
+  .card {
+    width: 100vw;
+    height: 100vh;
+  }
+}

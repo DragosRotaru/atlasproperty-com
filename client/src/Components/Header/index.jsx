@@ -6,7 +6,7 @@ import { List, ListItem, ListItemText } from "@rmwc/list";
 import { Elevation } from "@rmwc/elevation";
 import { Button } from "@rmwc/button";
 import { AuthService } from "../../services";
-import { AnnouncementBar } from "../AnnouncementBar";
+import { AnnouncementBar } from "../announcement-bar";
 import logo from "../../static/Logo.svg";
 import Style from "./style.css";
 
