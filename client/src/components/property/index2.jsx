@@ -1,59 +1,15 @@
-import * as typeformEmbed from "@typeform/embed";
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import moment from "moment";
-import gql from "graphql-tag";
+import * as typeformEmbed from "@typeform/embed";
 import { Chip, ChipSet } from "@rmwc/chip";
 import { Button } from "@rmwc/button";
 import Lightbox from "react-images";
-import { Datum } from "../datum";
-import { Loading } from "../loading";
-import { MapDataView } from "../map-data-view";
+import { Datum } from "../Datum";
+import { Loading } from "../Loading";
+import { MapDataView } from "../MapDataView";
 import Style from "./style.css";
-import { config } from "../../config";
-
-const dataQuery = gql`
-  query getProperty($id: ID) {
-    Property(id: $id) {
-      id
-      location
-      address
-      city
-      zoning
-      numberOfFloors
-      features
-      distanceToLaurierU
-      distanceToWaterlooU
-      distanceToConestogaCollege
-      distanceToUptownWaterloo
-      distanceToConestogaMall
-      media {
-        handle
-        isFeatured
-        priority
-      }
-      units {
-        id
-        type
-        bedrooms
-        bathrooms
-        price
-        availabilityDate
-        utilitiesIncluded
-        description
-        features
-        virtualTourURL
-        prioritizePropertyImages
-        media {
-          handle
-          isFeatured
-          priority
-        }
-      }
-    }
-  }
-`;
+import dataQuery from "./query.gql";
 
 const IMAGE_URL = "https://media.graphcms.com/resize=w:1200/compress/";
 
@@ -291,7 +247,7 @@ class PropertyWithoutData extends Component<Props, State> {
     }
 
     const utilitiesChips = unit.utilitiesIncluded.map(utility => (
-      <Chip key={utility} label={utility.replace(/_/g, " ")} />
+      <Chip key={utility} text={utility.replace(/_/g, " ")} />
     ));
 
     const utilities =
@@ -308,13 +264,13 @@ class PropertyWithoutData extends Component<Props, State> {
 
     property.features.forEach(feature =>
       featuresChips.push(
-        <Chip key={feature} label={feature.replace(/_/g, " ")} />
+        <Chip key={feature} text={feature.replace(/_/g, " ")} />
       )
     );
 
     unit.features.forEach(feature =>
       featuresChips.push(
-        <Chip key={feature} label={feature.replace(/_/g, " ")} />
+        <Chip key={feature} text={feature.replace(/_/g, " ")} />
       )
     );
 
@@ -373,11 +329,7 @@ class PropertyWithoutData extends Component<Props, State> {
               View More Photos
             </Button>
             {unit.virtualTourURL.length > 0 ? (
-              <a
-                href={unit.virtualTourURL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={unit.virtualTourURL} target="_blank">
                 <Button
                   raised
                   theme={["secondaryBg", "textPrimaryOnSecondary"]}
@@ -425,38 +377,17 @@ class PropertyWithoutData extends Component<Props, State> {
         transitionEnter={false}
         transitionLeave={false}
       >
-        {false ? ( // isCommercial ? (
-          <a href={`mailto:${config.contacts.leasing.commercial}`}>
-            <Button
-              key="cta-button"
-              raised
-              theme={["secondaryBg", "textPrimaryOnSecondary"]}
-              className={Style.cta}
-            >
-              Book
-              <br />
-              Tour
-            </Button>
-          </a>
-        ) : (
-          /*           <Link
-            to={`/${config.models.inquiries.name}?interested_in=${
-              property.address
-            }`}
-          > */
-          <Button
-            key="cta-button"
-            raised
-            theme={["secondaryBg", "textPrimaryOnSecondary"]}
-            className={Style.cta}
-            onClick={() => form.open()}
-          >
-            Book
-            <br />
-            Tour
-          </Button>
-          /* </Link> */
-        )}
+        <Button
+          key="cta-button"
+          raised
+          theme={["secondaryBg", "textPrimaryOnSecondary"]}
+          className={Style.cta}
+          onClick={() => form.open()}
+        >
+          Book
+          <br />
+          Tour
+        </Button>
       </ReactCSSTransitionGroup>,
     ];
   }

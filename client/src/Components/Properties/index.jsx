@@ -1,3 +1,4 @@
+import * as typeformEmbed from "@typeform/embed";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { graphql } from "react-apollo";

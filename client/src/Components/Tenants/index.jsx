@@ -79,9 +79,13 @@ export class Tenants extends Component<{}, State> {
                 >
                   <Button className={Style.button}>Sublet Form</Button>
                 </a>
-                <Link to={`/${config.models.rentReceipts.name}`}>
+                <a
+                  href="https://atlaspropertygroup.typeform.com/to/Gqtv2c"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button className={Style.button}>Rent Receipt</Button>
-                </Link>
+                </a>
                 <a
                   href="https://atlaspropertygroup.typeform.com/to/wOt21e"
                   target="_blank"
