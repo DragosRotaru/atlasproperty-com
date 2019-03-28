@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, type Ref } from "react";
 import { Link } from "react-router-dom";
 import Style from "./style.css";
 
@@ -32,15 +32,16 @@ type Props = {
 type State = {};
 
 export class Tile extends Component<Props, State> {
+  video: Ref<HTMLVideoElement> = React.createRef();
   constructor(props) {
     super(props);
-    this.playVideo = () => {
-      this.video.play();
-    };
-    this.pauseVideo = () => {
-      this.video.pause();
-    };
   }
+  playVideo = () => {
+    this.video.play();
+  };
+  pauseVideo = () => {
+    this.video.pause();
+  };
   componentDidMount() {
     if (
       this.props.color === "video-white" &&
@@ -104,13 +105,7 @@ export class Tile extends Component<Props, State> {
             onBlur={this.pauseVideo}
           >
             <a href={this.props.href}>
-              <video
-                ref={video => {
-                  this.video = video;
-                }}
-                muted
-                loop
-              >
+              <video ref={this.video} muted loop>
                 <track kind="captions" src={this.props.accessibility} />
                 <source src={this.props.mediaURL} type={this.props.mimeType} />
                 Your browser doesnt support HTML5 video
@@ -179,13 +174,7 @@ export class Tile extends Component<Props, State> {
             onBlur={this.pauseVideo}
           >
             <Link to={this.props.to}>
-              <video
-                ref={video => {
-                  this.video = video;
-                }}
-                muted
-                loop
-              >
+              <video ref={this.video} muted loop>
                 <track kind="captions" src={this.props.accessibility} />
                 <source src={this.props.mediaURL} type={this.props.mimeType} />
                 Your browser doesnt support HTML5 video
@@ -250,13 +239,7 @@ export class Tile extends Component<Props, State> {
           onFocus={this.playVideo}
           onBlur={this.pauseVideo}
         >
-          <video
-            ref={video => {
-              this.video = video;
-            }}
-            muted
-            loop
-          >
+          <video ref={this.video} muted loop>
             <track kind="captions" src={this.props.accessibility} />
             <source src={this.props.mediaURL} type={this.props.mimeType} />
             Your browser doesnt support HTML5 video

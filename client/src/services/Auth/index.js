@@ -1,6 +1,6 @@
 import axios from "axios";
-import { apolloClient } from "../ApolloClient";
-import { config } from "../../../../common/src";
+// import { apolloClient } from "../apollo-client";
+import { config } from "../../config";
 
 const ENDPOINT = config.models.auth.api;
 
@@ -25,7 +25,7 @@ export class AuthService implements IAuthService {
           username,
           password,
         },
-        withCredentials: true,
+        withCredentials: config.security.withCredentials,
       })
       .then(res => {
         localStorage.setItem("userID", res.data.id);
@@ -35,11 +35,15 @@ export class AuthService implements IAuthService {
   }
   logout(): void {
     axios
-      .post(`${ENDPOINT}/logout`)
+      .request({
+        method: "post",
+        url: `${ENDPOINT}/logout`,
+        withCredentials: config.security.withCredentials,
+      })
       .then(res => {
         localStorage.removeItem("userID");
-        apolloClient.resetStore();
-        window.location.replace("/login");
+        // apolloClient.resetStore();
+        window.location.replace(`/${config.models.auth.name}/login`);
       })
       .catch(err => alert(err.toString()));
   }

@@ -45,9 +45,58 @@ const images = [
   },
 ];
 
+const secondImages = [
+  {
+    src: require("./dalhousie/image-1.jpg"),
+  },
+  {
+    src: require("./dalhousie/image-2.jpg"),
+  },
+  {
+    src: require("./dalhousie/image-3.jpg"),
+  },
+  {
+    src: require("./dalhousie/image-4.jpg"),
+  },
+  {
+    src: require("./dalhousie/image-5.png"),
+  },
+];
+
+const thirdImages = [
+  {
+    src: require("./otterville/image-1.jpg"),
+  },
+  {
+    src: require("./otterville/image-2.jpg"),
+  },
+  {
+    src: require("./otterville/image-3.jpg"),
+  },
+  {
+    src: require("./otterville/image-4.jpg"),
+  },
+  {
+    src: require("./otterville/image-5.jpg"),
+  },
+  {
+    src: require("./otterville/image-6.jpg"),
+  },
+  {
+    src: require("./otterville/image-7.jpg"),
+  },
+  {
+    src: require("./otterville/image-8.jpg"),
+  },
+];
+
 type State = {
   isLightBoxOpen: boolean,
+  isSecondLightBoxOpen: boolean,
+  isThirdLightBoxOpen: boolean,
   lightBoxCurrentImage: number,
+  secondLightBoxCurrentImage: number,
+  thirdLightBoxCurrentImage: number,
 };
 
 export class Development extends Component<void, State> {
@@ -55,7 +104,11 @@ export class Development extends Component<void, State> {
     super();
     this.state = {
       isLightBoxOpen: false,
+      isSecondLightBoxOpen: false,
+      isThirdLightBoxOpen: false,
       lightBoxCurrentImage: 0,
+      secondLightBoxCurrentImage: 0,
+      thirdLightBoxCurrentImage: 0,
     };
   }
   openLightBox() {
@@ -77,6 +130,50 @@ export class Development extends Component<void, State> {
       return {
         ...prevState,
         lightBoxCurrentImage: prevState.lightBoxCurrentImage - 1,
+      };
+    });
+  }
+  openSecondLightBox() {
+    this.setState({ isSecondLightBoxOpen: true });
+  }
+  closeSecondLightBox() {
+    this.setState({ isSecondLightBoxOpen: false });
+  }
+  secondLightBoxNextImage() {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        secondLightBoxCurrentImage: prevState.secondLightBoxCurrentImage + 1,
+      };
+    });
+  }
+  secondLightBoxPrevImage() {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        secondLightBoxCurrentImage: prevState.secondLightBoxCurrentImage - 1,
+      };
+    });
+  }
+  openThirdLightBox() {
+    this.setState({ isThirdLightBoxOpen: true });
+  }
+  closeThirdLightBox() {
+    this.setState({ isThirdLightBoxOpen: false });
+  }
+  thirdLightBoxNextImage() {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        thirdLightBoxCurrentImage: prevState.thirdLightBoxCurrentImage + 1,
+      };
+    });
+  }
+  thirdLightBoxPrevImage() {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        thirdLightBoxCurrentImage: prevState.thirdLightBoxCurrentImage - 1,
       };
     });
   }
@@ -140,18 +237,52 @@ export class Development extends Component<void, State> {
                 <h2>Colborne</h2>
                 <p>Brantford, Ontario</p>
               </div>
+              <div
+                onClick={() => this.openSecondLightBox()}
+                className={Style.dalhousieBratford}
+              >
+                <h2>Dalhousie</h2>
+                <p>Brantford, Ontario</p>
+              </div>
+              <div
+                onClick={() => this.openThirdLightBox()}
+                className={Style.otterville}
+              >
+                <h2>Main St.</h2>
+                <p>Otterville, Ontario</p>
+              </div>
             </div>
           </div>
         </div>
       </div>,
       <Lightbox
-        key="Lightbox"
+        key="FirstLightbox"
         images={images}
         currentImage={this.state.lightBoxCurrentImage}
         isOpen={this.state.isLightBoxOpen}
         onClose={() => this.closeLightBox()}
         onClickPrev={() => this.lightBoxPrevImage()}
         onClickNext={() => this.lightBoxNextImage()}
+        backdropClosesModal
+      />,
+      <Lightbox
+        key="SecondLightbox"
+        images={secondImages}
+        currentImage={this.state.secondLightBoxCurrentImage}
+        isOpen={this.state.isSecondLightBoxOpen}
+        onClose={() => this.closeSecondLightBox()}
+        onClickPrev={() => this.secondLightBoxPrevImage()}
+        onClickNext={() => this.secondLightBoxNextImage()}
+        backdropClosesModal
+      />,
+      <Lightbox
+        key="ThirdLightbox"
+        images={thirdImages}
+        currentImage={this.state.thirdLightBoxCurrentImage}
+        isOpen={this.state.isThirdLightBoxOpen}
+        onClose={() => this.closeThirdLightBox()}
+        onClickPrev={() => this.thirdLightBoxPrevImage()}
+        onClickNext={() => this.thirdLightBoxNextImage()}
         backdropClosesModal
       />,
     ];

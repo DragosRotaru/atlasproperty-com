@@ -1,7 +1,6 @@
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 // const [BundleAnalyzerPlugin] = require('webpack-bundle-analyzer');
 const common = require("./webpack.config.common.js");
@@ -36,9 +35,6 @@ module.exports = merge(common, {
       // both options are optional
       filename: "[name].css",
       chunkFilename: "[id].css",
-    }),
-    new UglifyJSPlugin({
-      sourceMap: true,
     }),
     new FaviconsWebpackPlugin({
       logo: "./src/static/favicon.png",

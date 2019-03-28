@@ -1,6 +1,8 @@
+import * as typeformEmbed from "@typeform/embed";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { graphql } from "react-apollo";
+import gql from "graphql-tag";
 import { TabBar, Tab } from "@rmwc/tabs";
 import { Drawer, DrawerContent } from "@rmwc/drawer";
 import { Select } from "@rmwc/select";
@@ -13,10 +15,47 @@ import { Toolbar, ToolbarRow, ToolbarSection } from "@rmwc/toolbar";
 import DayPicker from "react-day-picker";
 import "react-day-picker/lib/style.css";
 import moment from "moment";
-import { Loading } from "../Loading";
-import { MapDataView } from "../MapDataView";
+import { Loading } from "../loading";
+import { MapDataView } from "../map-data-view";
 import Style from "./style.css";
-import query from "./query.gql";
+
+const query = gql`
+  {
+    allProperties {
+      id
+      location
+      address
+      city
+      zoning
+      features
+      priority
+      isFeatured
+      imageBanner
+      media {
+        handle
+        isFeatured
+        priority
+      }
+      units {
+        id
+        type
+        price
+        bedrooms
+        bathrooms
+        description
+        features
+        utilitiesIncluded
+        availabilityDate
+        prioritizePropertyImages
+        media {
+          handle
+          isFeatured
+          priority
+        }
+      }
+    }
+  }
+`;
 
 type media = {
   handle: string,

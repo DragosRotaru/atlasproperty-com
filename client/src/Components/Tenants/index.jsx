@@ -3,9 +3,14 @@ import Typist from "react-typist";
 import { Button } from "@rmwc/button";
 import { Link } from "react-router-dom";
 import Style from "./style.css";
+import { config } from "../../config";
 
-export class Tenants extends Component {
-  constructor(props) {
+type State = {
+  headingTyped: boolean,
+};
+
+export class Tenants extends Component<{}, State> {
+  constructor(props: any) {
     super(props);
     this.state = {
       headingTyped: false,
@@ -74,9 +79,13 @@ export class Tenants extends Component {
                 >
                   <Button className={Style.button}>Sublet Form</Button>
                 </a>
-                <Link to="/rent-receipt-request">
+                <a
+                  href="https://atlaspropertygroup.typeform.com/to/Gqtv2c"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Button className={Style.button}>Rent Receipt</Button>
-                </Link>
+                </a>
                 <a
                   href="https://atlaspropertygroup.typeform.com/to/wOt21e"
                   target="_blank"

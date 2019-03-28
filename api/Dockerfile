@@ -1,6 +1,7 @@
 FROM node:latest
 
 ENV SENDGRID_API_KEY ""
+ENV DEBUG "*"
 
 RUN mkdir /code
 WORKDIR /code

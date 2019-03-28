@@ -139,6 +139,16 @@
     url("./comingsoon.png");
 }
 
+.dalhousieBratford {
+  background: linear-gradient(rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0.4)),
+    url("./dalhousie/image-5.png");
+}
+
+.otterville {
+  background: linear-gradient(rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0.4)),
+    url("./otterville/image-1.jpg");
+}
+
 @media screen and (width < 1100px) {
   .content {
     grid-template-columns: repeat(auto-fit, 45vw);
