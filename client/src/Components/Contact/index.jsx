@@ -17,6 +17,13 @@ export const Contact = () => (
         <a href="tel:5197457999">
           <h3>(519) 745 7999</h3>
         </a>
+        <h4>
+          General ext. 101 <br />
+          Leasing ext. 102 <br />
+          Collections ext. 103 <br />
+          Emergency ext. 104 <br />
+          Maintenance ext. 105
+        </h4>
         <a href="mailto:info@atlasproperty.com">
           <h3>info@atlasproperty.com</h3>
         </a>
