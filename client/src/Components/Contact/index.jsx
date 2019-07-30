@@ -33,8 +33,9 @@ export const Contact = () => (
           rel="noopener noreferrer"
         >
           <h3>
-            1 King Street North Waterloo <br />
-            3rd floor
+            3rd floor <br />
+            1 King Street North <br />
+            Waterloo, ON N2J 2W6 <br />
           </h3>
         </a>
         <h3>
