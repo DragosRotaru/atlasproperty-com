@@ -10,7 +10,7 @@ import Style from "./style.css";
 
 const query = gql`
   {
-    allTeamMembers {
+    teamMembers {
       id
       name
       title
@@ -26,7 +26,7 @@ const query = gql`
 
 type Props = {
   data: {
-    allTeamMembers: Array<{
+    teamMembers: Array<{
       id: string,
       name: string,
       title: string,
@@ -117,7 +117,7 @@ class TeamWithoutData extends Component<Props> {
             Style.grid,
             this.props.className ? this.props.className : "",
           ].join(" ")}
-          data={this.props.data.allTeamMembers}
+          data={this.props.data.teamMembers}
           keyAccessor={person => person.id}
           dataViewGenerator={(data, inViewportIndex) =>
             this.customGrid(data, inViewportIndex)

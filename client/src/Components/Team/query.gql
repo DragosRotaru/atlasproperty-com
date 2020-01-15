@@ -1,5 +1,5 @@
 {
-  allTeamMembers {
+  teamMembers {
     id
     name
     title

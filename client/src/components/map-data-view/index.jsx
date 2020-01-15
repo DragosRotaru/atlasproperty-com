@@ -34,12 +34,19 @@ export const MapDataView = compose(
     isMarkerShown
     defaultZoom={13}
     defaultCenter={props.center}
-    options={{ disableDefaultUI: true, styles: defaultStyle, minZoom: 3 }}
+    options={{
+      disableDefaultUI: true,
+      styles: defaultStyle,
+      minZoom: 3,
+    }}
   >
     {props.data.map(property => (
       <Marker
         key={property.id}
-        position={property.location}
+        position={{
+          lat: property.location.latitude,
+          lng: property.location.longitude,
+        }}
         onClick={() => props.onClick(property.id)}
         icon={[
           "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|",

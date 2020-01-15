@@ -10,7 +10,7 @@ const debug = Debug("AnnouncementBar");
 
 type Props = {
   data: {
-    allAnnouncements: Array<{
+    announcements: Array<{
       title: string,
       description: ?string,
       expiryDate: ?string,
@@ -51,13 +51,13 @@ class AnnouncementBarWithoutData extends Component<Props, State> {
     if (!this.state.open) {
       return "";
     }
-    if (this.props.data.allAnnouncements.length === 0) {
+    if (this.props.data.announcements.length === 0) {
       return "";
     }
 
     let latest;
 
-    this.props.data.allAnnouncements.reverse().forEach(announcement => {
+    this.props.data.announcements.reverse().forEach(announcement => {
       if (moment(announcement.expiryDate) - moment() > 0) {
         latest = announcement;
       }

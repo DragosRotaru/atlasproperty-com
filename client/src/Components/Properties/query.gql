@@ -1,7 +1,10 @@
 {
-  allProperties {
+  properties {
     id
-    location
+    location {
+      latitude
+      longitude
+    }
     address
     city
     zoning

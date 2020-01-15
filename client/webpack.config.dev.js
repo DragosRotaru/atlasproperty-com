@@ -18,6 +18,7 @@ module.exports = merge(common, {
       "Access-Control-Allow-Headers":
         "X-Requested-With, content-type, Authorization",
     },
+    stats: true,
   },
   module: {
     rules: [

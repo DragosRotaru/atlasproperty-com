@@ -8,7 +8,7 @@ const CLIENT_URL = `${URL}:${CLIENT_PORT}`;
 
 export const config = {
   graphql: {
-    url: "https://api.graphcms.com/simple/v1/atlaswebsite",
+    url: "https://api-uswest.graphcms.com/v1/ck5829ugj4clx01ckazob3adb/master",
   },
   models: {
     auth: {

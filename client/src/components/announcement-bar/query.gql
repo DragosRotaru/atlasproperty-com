@@ -1,5 +1,5 @@
 {
-  allAnnouncements {
+  announcements {
     title
     details
     expiryDate

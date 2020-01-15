@@ -36,7 +36,10 @@ type unit = {
 
 type property = {
   id: string,
-  location: string,
+  location: {
+    latitude: number,
+    longitude: number,
+  },
   address: string,
   city: string,
   zoning: string,
@@ -308,7 +311,13 @@ class PropertyWithoutData extends Component<Props, State> {
 
     return [
       <div key="map" className={Style.map}>
-        <MapDataView center={property.location} data={[property]} />
+        <MapDataView
+          center={{
+            lat: property.location.latitude,
+            lng: property.location.longitude,
+          }}
+          data={[property]}
+        />
       </div>,
       <div
         key="container"

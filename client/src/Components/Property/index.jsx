@@ -15,9 +15,12 @@ import { config } from "../../config";
 
 const dataQuery = gql`
   query getProperty($id: ID) {
-    Property(id: $id) {
+    property(where: { id: $id }) {
       id
-      location
+      location {
+        latitude
+        longitude
+      }
       address
       city
       zoning
@@ -80,7 +83,10 @@ type unit = {
 
 type property = {
   id: string,
-  location: string,
+  location: {
+    latitude: number,
+    longitude: number,
+  },
   address: string,
   city: string,
   zoning: string,
@@ -98,7 +104,7 @@ type property = {
 type Props = {
   id: string,
   data: {
-    Property: property,
+    property: property,
     error?: {},
     loading: boolean,
   },
@@ -172,7 +178,7 @@ class PropertyWithoutData extends Component<Props, State> {
       return <div>{this.props.data.error.toString()}</div>;
     }
 
-    const property = this.props.data.Property;
+    const property = this.props.data.property;
     const unit = property.units.filter(
       u => u.id === this.props.match.params.unitId
     )[0];
@@ -349,10 +355,15 @@ class PropertyWithoutData extends Component<Props, State> {
           src: [IMAGE_URL, media.handle].join(""),
         });
       });
-
     return [
       <div key="map" className={Style.map}>
-        <MapDataView center={property.location} data={[property]} />
+        <MapDataView
+          center={{
+            lat: property.location.latitude,
+            lng: property.location.longitude,
+          }}
+          data={[property]}
+        />
       </div>,
       <div
         key="container"

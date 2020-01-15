@@ -21,9 +21,12 @@ import Style from "./style.css";
 
 const query = gql`
   {
-    allProperties {
+    properties {
       id
-      location
+      location {
+        latitude
+        longitude
+      }
       address
       city
       zoning
@@ -79,7 +82,10 @@ type unit = {
 
 type property = {
   id: string,
-  location: string,
+  location: {
+    latitude: number,
+    longitude: number,
+  },
   address: string,
   city: string,
   zoning: string,
@@ -102,7 +108,7 @@ type gridItem = {
 
 type Props = {
   data: {
-    allProperties: Array<property>,
+    properties: Array<property>,
     error: {},
     loading: boolean,
   },
@@ -272,7 +278,7 @@ class PropertiesWithoutData extends React.Component<Props, State> {
     }
 
     const cityOptions = [
-      ...new Set(this.props.data.allProperties.map(property => property.city)),
+      ...new Set(this.props.data.properties.map(property => property.city)),
     ];
     cityOptions.push("Anywhere");
 
@@ -292,7 +298,7 @@ class PropertiesWithoutData extends React.Component<Props, State> {
       </Checkbox>
     ));
 
-    const properties = this.props.data.allProperties
+    const properties = this.props.data.properties
       .filter(property => property.units.length > 0)
       .filter(property => {
         // By Zone

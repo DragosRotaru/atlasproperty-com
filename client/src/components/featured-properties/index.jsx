@@ -8,7 +8,7 @@ import dataQuery from "./query.gql";
 
 type Props = {
   data: {
-    allProperties?: Array<any>,
+    properties?: Array<any>,
     error?: {},
     loading: boolean,
   },
@@ -76,10 +76,11 @@ class FeaturedPropertiesWithoutData extends Component<Props> {
     }
 
     const grid = [];
-    this.props.data.allProperties
+    this.props.data.properties
       .slice()
       .filter(property => property.isFeatured)
       .filter(property => property.zoning === "Residential")
+      .filter(property => property.units.length > 0)
       .sort((a, b) => a.priority - b.priority)
       .reverse()
       .slice(0, 3)
