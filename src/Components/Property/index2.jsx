@@ -337,7 +337,7 @@ class PropertyWithoutData extends Component<Props, State> {
             >
               View More Photos
             </Button>
-            {unit.virtualTourURL.length > 0 ? (
+            {unit.virtualTourURL && unit.virtualTourURL.length > 0 ? (
               <a href={unit.virtualTourURL} target="_blank">
                 <Button
                   raised

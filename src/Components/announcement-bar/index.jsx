@@ -12,7 +12,7 @@ type Props = {
   data: {
     announcements: Array<{
       title: string,
-      description: ?string,
+      details: ?string,
       expiryDate: ?string,
     }>,
     error: {},
@@ -44,7 +44,7 @@ class AnnouncementBarWithoutData extends Component<Props, State> {
       debug("Announcements Loading");
       return "";
     }
-    if (this.props.data.error !== undefined) {
+    if (this.props.data.error) {
       debug(this.props.data.error.toString());
       return "";
     }
