@@ -3,7 +3,7 @@ import { graphql } from "react-apollo";
 import moment from "moment";
 import { SimpleDialog } from "@rmwc/dialog";
 import Debug from "debug";
-import { style } from "./style.css";
+import style from "./style.css";
 import dataQuery from "./query.gql";
 
 const debug = Debug("AnnouncementBar");

@@ -26,8 +26,8 @@
     "test": "npx jest",
     "audit": "npm audit",
     "audit:fix": "npm audit fix",
-    "dev": "npx webpack-dashboard -- npx webpack-dev-server --config webpack.config.dev.js",
-    "prod": "npx webpack --config webpack.config.prod.js"
+    "start": "npx webpack-dashboard -- npx webpack-dev-server --config webpack.config.dev.js",
+    "build": "npx webpack --config webpack.config.prod.js"
   },
   "dependencies": {
     "@ibm/plex": "^1.2.3",
